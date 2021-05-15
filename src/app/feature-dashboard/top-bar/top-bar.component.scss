@@ -1,0 +1,20 @@
+@import "../../../styles/style-variable.scss";
+
+.top-bar-card {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px;
+}
+
+.iconify {
+    margin: 5px;
+}
+
+.star-icon {
+    color: $highlight-color;
+}
+
+.name {
+    display: flex;
+    flex-direction: column;
+}

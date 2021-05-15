@@ -1,0 +1,75 @@
+<ng-container>
+  <!-- <mat-accordion class="nav-list">
+    <mat-expansion-panel class="nav-list">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Home
+        </mat-panel-title>
+        <mat-panel-description>
+          <span class="iconify" data-icon="feather-home" data-inline="false"></span>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      </mat-expansion-panel>
+  </mat-accordion> -->
+    <mat-nav-list class="nav-list">
+      <a mat-list-item>
+        <button  mat-flat-button color="accent" (click)="showCategories = !showCategories">
+          <span class="iconify" data-icon="feather-home" data-inline="false"></span>
+          Home
+        </button>
+      </a>
+      <div *ngIf="showCategories">
+        <a mat-list-item>Category 1</a>
+        <a mat-list-item>
+          <button  mat-flat-button color="accent">
+            <span class="iconify" data-icon="feather-mail" data-inline="false"></span>
+            Email
+          </button>
+        </a>
+        <a mat-list-item>
+          <button  mat-flat-button color="accent">
+            <span class="iconify" data-icon="feather-message-square" data-inline="false"></span>
+            Chat
+          </button>
+        </a>
+        <a mat-list-item>
+          <button  mat-flat-button color="accent">
+            <span class="iconify" data-icon="feather-check-square" data-inline="false"></span>
+            Todo
+          </button>
+        </a>
+        <a mat-list-item>
+          <button  mat-flat-button color="accent">
+            <span class="iconify" data-icon="feather-calendar" data-inline="false"></span>
+            Calender
+          </button>
+        </a>
+        <a mat-list-item>
+          <button  mat-flat-button color="accent">
+            <span class="iconify" data-icon="feather-shopping-cart" data-inline="false"></span>
+            eCommerce
+          </button>
+        </a>
+
+        <a mat-list-item>Category 2</a>
+        <a mat-list-item>
+          <button  mat-flat-button color="accent">
+            <span class="iconify" data-icon="feather-type" data-inline="false"></span>
+            Typography
+          </button>
+        </a>
+        <a mat-list-item>
+          <button  mat-flat-button color="accent">
+            <span class="iconify" data-icon="feather-eye" data-inline="false"></span>
+            Feather
+          </button>
+        </a>
+        <a mat-list-item>
+          <button  mat-flat-button color="accent">
+            <span class="iconify" data-icon="feather-credit-card" data-inline="false"></span>
+            Cards
+          </button>
+        </a>
+      </div>
+    </mat-nav-list>
+</ng-container>

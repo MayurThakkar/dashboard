@@ -1,0 +1,10 @@
+<mat-card class="dashboard-card">
+    <mat-card-header>
+        <mat-card-title>
+            {{header}}
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="dashboard-card-content" [ngClass]="{'center-text': centerText}">
+        <p><ng-content></ng-content></p>
+    </mat-card-content>
+ </mat-card>
