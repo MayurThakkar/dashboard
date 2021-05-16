@@ -1,24 +1,32 @@
 {
   "shopping_cart_items": [
     {
+      "id": "1",
       "name": "item 1",
       "count": 1,
-      "price": 339.99
+      "price": 339.99,
+      "total": 339.99
     },
     {
+      "id": "2",
       "name": "item 2",
       "count": 1,
-      "price": 129.29
+      "price": 129.29,
+      "total": 129.29
     },
     {
+      "id": "3",
       "name": "item 3",
       "count": 1,
-      "price": 669.99
+      "price": 669.99,
+      "total": 669.99
     },
     {
+      "id": "4",
       "name": "item 4",
       "count": 1,
-      "price": 999.99
+      "price": 999.99,
+      "total": 999.99
     }
   ]
 }

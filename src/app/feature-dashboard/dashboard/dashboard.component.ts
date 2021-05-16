@@ -1,25 +1,23 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
-import { IShoppingCart } from '../cart-items.model';
-import { DashboardService } from '../dashboard-service.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit, OnDestroy {
-  private _unsubscribe = new Subject<void>();
-  shoppingCart$: Observable<IShoppingCart>;
+export class DashboardComponent implements OnInit {
   showCategories = false;
+  isOpenCart: boolean;
 
-  constructor(private dashboardService: DashboardService) { }
+  constructor() { }
 
-  ngOnInit(): void {
-    this.shoppingCart$ = this.dashboardService.getCartItems();
+  ngOnInit(): void {}
+
+  openShoppingCart(openEvent: boolean) {
+    this.isOpenCart = openEvent;
   }
 
-  ngOnDestroy(): void {
-    // this._unsubscribe
+  closeShoppingCart() {
+    this.isOpenCart = false;
   }
 }

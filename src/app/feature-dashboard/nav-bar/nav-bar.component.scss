@@ -3,3 +3,10 @@
 .mat-list-item {
     color: $text-color;
 }
+
+.home-button {
+	width: 100%;
+	background-color: $default-background;
+    color: $text-color;
+    text-align: start;
+}

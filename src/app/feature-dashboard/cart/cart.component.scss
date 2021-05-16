@@ -1,0 +1,69 @@
+@import "../../../styles/style-variable.scss";
+
+.cart-card {
+    position: absolute;
+    width: 350px;
+    height: fit-content;
+    padding-left: 0;
+    padding-right: 0;
+ }
+  
+ .cart-card-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+ }
+
+ .cart-items, .total-items {
+   display: flex;
+   justify-content: space-between;
+   height: 45px;
+   border-top: solid 0.5px $icon-color;
+   padding: 10px 20px 5px 20px;
+ }
+
+ .quantity {
+   background-color: $default-foreground;
+   border: solid 0.5px $icon-color;
+   border-radius: 5px;
+   height: 25px;
+ }
+
+.quantity-count {
+   width: 30px;
+   height: 10px;
+   text-align: center;
+   font-size: 12px;
+   background: transparent;
+   border-width: 0 0.5px 0 0.5px;
+   border-right: solid 0.5px $icon-color;
+   border-left: solid 0.5px $icon-color;
+   padding-right: 5px;
+   padding-left: 5px;
+   color: $text-color;
+}
+
+.quantity-button {
+   width: 27px;
+   border-width: 0;
+   background: transparent;
+   color: $icon-color;
+}
+
+ .cart-items:hover {
+   background-color: $default-background;
+   .remove-item {
+      visibility: visible;
+   }
+  }
+
+ .checkout-button {
+   margin: 0 20px 0 20px;
+ }
+
+ .remove-item {
+    visibility: hidden;
+ }

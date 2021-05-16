@@ -1,25 +1,11 @@
 <ng-container>
-  <!-- <mat-accordion class="nav-list">
-    <mat-expansion-panel class="nav-list">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Home
-        </mat-panel-title>
-        <mat-panel-description>
-          <span class="iconify" data-icon="feather-home" data-inline="false"></span>
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      </mat-expansion-panel>
-  </mat-accordion> -->
     <mat-nav-list class="nav-list">
-      <a mat-list-item>
-        <button  mat-flat-button color="accent" (click)="showCategories = !showCategories">
-          <span class="iconify" data-icon="feather-home" data-inline="false"></span>
-          Home
-        </button>
-      </a>
+      <button  mat-flat-button class="home-button" (click)="showCategories = !showCategories">
+        <span class="iconify" data-icon="feather-home" data-inline="false"></span>
+        Home
+      </button>
       <div *ngIf="showCategories">
-        <a mat-list-item>Category 1</a>
+        <a>Category 1</a>
         <a mat-list-item>
           <button  mat-flat-button color="accent">
             <span class="iconify" data-icon="feather-mail" data-inline="false"></span>

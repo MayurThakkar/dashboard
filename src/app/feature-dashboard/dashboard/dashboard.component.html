@@ -1,11 +1,13 @@
 <div class="main-wrapper">
   <mat-sidenav-container class="row side-nav">
-    <mat-sidenav class="col-2" opened mode="side">
+    <mat-sidenav class="col-xl-2 d-none d-xl-block" opened mode="side">
       <app-nav-bar></app-nav-bar>
     </mat-sidenav>
 
-    <mat-sidenav-content class="col-10 side-nav-content">
-        <app-top-bar class="sticky-top-bar"></app-top-bar>
+    <mat-sidenav-content class="col-xl-10 col side-nav-content">
+        <app-top-bar class="sticky-top-bar" (openCart)="openShoppingCart($event)"></app-top-bar>
+        <app-cart *ngIf="isOpenCart" class="shopping-cart" (outsideClick)="closeShoppingCart()"></app-cart>
+        <!-- <app-cart class="shopping-cart"></app-cart> -->
 
         <mat-grid-list cols="6" rowHeight="180px">
           <mat-grid-tile [colspan]="2" [rowspan]="1">
@@ -29,10 +31,16 @@
           <mat-grid-tile [colspan]="2" [rowspan]="1">
             <app-card header="heelo"></app-card>
           </mat-grid-tile>
-          <mat-grid-tile [colspan]="3" [rowspan]="2">
+          <mat-grid-tile [colspan]="3" [rowspan]="1">
             <app-card header="heelo"></app-card>
           </mat-grid-tile>
-          <mat-grid-tile [colspan]="3" [rowspan]="2">
+          <mat-grid-tile [colspan]="3" [rowspan]="1">
+            <app-card header="heelo"></app-card>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="3" [rowspan]="1">
+            <app-card header="heelo"></app-card>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="3" [rowspan]="1">
             <app-card header="heelo"></app-card>
           </mat-grid-tile>
         </mat-grid-list>

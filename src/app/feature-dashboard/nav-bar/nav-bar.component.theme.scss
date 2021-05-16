@@ -5,13 +5,12 @@
 	$primary: map-get($theme, primary);
 	$accent: map-get($theme, accent);
 	$warn: map-get($theme, warn);
-  	$foreground: map-get($theme, foreground);
 }
 
-.side-nav-content {
-	background: transparent;
+.mat-expansion-panel.nav-list{
+	background-color: $default-background;
 }
 
-.nav-list{
+mat-panel-title.mat-expansion-panel-header-title, mat-panel-description.mat-expansion-panel-header-description{
 	color: $text-color;
 }

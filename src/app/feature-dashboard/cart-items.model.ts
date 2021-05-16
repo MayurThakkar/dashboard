@@ -3,7 +3,9 @@ export interface IShoppingCart {
 }
 
 export interface IShoppingCartItems {
+    id: string,
     name: string,
     count: number,
-    price: number
+    price: number,
+    total: number
 }

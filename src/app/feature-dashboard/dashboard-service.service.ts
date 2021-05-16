@@ -1,18 +1,26 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IShoppingCart } from './cart-items.model';
+import { IShoppingCartItems } from './cart-items.model';
+
+const URL = 'api/shopping_cart_items/'
 
 @Injectable({
   providedIn: 'root'
 })
 export class DashboardService {
-
   constructor(private _httpClient: HttpClient) {}
 
-  getCartItems(): Observable<IShoppingCart> {
-    return this._httpClient.get('../../assets/data/shopping_cart_items.json') as Observable<IShoppingCart>;
+  getCartItems(): Observable<IShoppingCartItems[]> {
+    return this._httpClient.get(URL) as Observable<IShoppingCartItems[]>;
   }
 
-  updateItem() {}
+  updateItem(item: IShoppingCartItems): Observable<IShoppingCartItems>{
+    return this._httpClient.put(URL + item.id, item) as Observable<IShoppingCartItems>;
+  }
+
+  deleteItem(itemID: string): Observable<IShoppingCartItems> {
+    return this._httpClient.delete(URL + itemID) as Observable<IShoppingCartItems>;
+  }
 }
+

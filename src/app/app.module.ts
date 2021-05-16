@@ -24,9 +24,13 @@ import { DashboardService } from './feature-dashboard/dashboard-service.service'
 import { NavBarComponent } from './feature-dashboard/nav-bar/nav-bar.component';
 import { TopBarComponent } from './feature-dashboard/top-bar/top-bar.component';
 import { CardComponent } from './feature-dashboard/card/card.component';
+import { CartComponent } from './feature-dashboard/cart/cart.component';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { DataService } from './feature-dashboard/data.service';
+import { OutsideClickDirective } from './directive/outside-click.directive';
 
 @NgModule({
-  declarations: [AppComponent, DashboardComponent, NavBarComponent, TopBarComponent, CardComponent],
+  declarations: [AppComponent, DashboardComponent, NavBarComponent, TopBarComponent, CardComponent, CartComponent, OutsideClickDirective],
   imports: [
     AppRoutingModule,
     BrowserModule,
@@ -46,6 +50,7 @@ import { CardComponent } from './feature-dashboard/card/card.component';
     MatSnackBarModule,
     MatToolbarModule,
     HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(DataService),
   ],
   providers: [DashboardService],
   bootstrap: [AppComponent],
