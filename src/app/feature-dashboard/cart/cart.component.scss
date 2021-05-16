@@ -1,5 +1,16 @@
 @import '../../../styles/style-variable.scss';
 
+.item-length {
+  color: $primary-color;
+  height: 22px;
+  border-radius: 25px;
+  background-color: rgba(255, 159, 67, 0.12);
+  padding-right: 10px;
+  padding-left: 10px;
+  font-size: 14px;
+  margin: 5px 20px 0 0;
+}
+
 .cart-card {
   position: absolute;
   width: 350px;
@@ -24,6 +35,10 @@
   height: 45px;
   border-top: solid 0.5px $icon-color;
   padding: 10px 20px 5px 20px;
+}
+
+.total-amount {
+  color: $primary-color;
 }
 
 .quantity {

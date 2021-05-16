@@ -1,6 +1,7 @@
-<mat-card class="row cart-card">
-  <mat-card-header>
-    <mat-card-title> My Cart </mat-card-title>
+<mat-card class="cart-card">
+  <mat-card-header class="justify-content-between">
+    <mat-card-title>My Cart</mat-card-title>
+    <span *ngIf="shoppingCart" class="item-length">{{ shoppingCart?.length }} Items</span>
   </mat-card-header>
   <mat-card-content class="cart-card-content">
     <div *ngFor="let item of shoppingCart">
@@ -19,7 +20,9 @@
         </div>
       </div>
     </div>
-    <div class="total-items" *ngIf="shoppingCart?.length != 0"><span>Total:</span>{{ totalAmount | currency }}</div>
+    <div class="total-items" *ngIf="shoppingCart?.length != 0">
+      <span>Total:</span><span class="total-amount">{{ totalAmount | currency }}</span>
+    </div>
     <button
       mat-raised-button
       color="primary"

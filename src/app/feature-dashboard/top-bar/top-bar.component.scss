@@ -7,7 +7,7 @@
 }
 
 .iconify {
-  margin: 8px;
+  margin: 0 8px 0 8px;
 }
 
 .star-icon {
@@ -22,4 +22,7 @@
 .cart-button {
   cursor: pointer;
   color: $text-color;
+  > .iconify {
+    margin: 0;
+  }
 }
