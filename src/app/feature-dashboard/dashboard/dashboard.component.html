@@ -9,7 +9,7 @@
       <app-cart *ngIf="isOpenCart" class="shopping-cart" (outsideClick)="closeShoppingCart()"></app-cart>
       <!-- <app-cart class="shopping-cart"></app-cart> -->
 
-      <mat-grid-list cols="6" rowHeight="180px">
+      <mat-grid-list [cols]="breakpoint" rowHeight="180px" (window:resize)="onResize($event)">
         <mat-grid-tile [colspan]="2" [rowspan]="1">
           <app-card header="Continental Engineering Services"
             >Our Maneuvering Collision Alert (MCA) is a generic collision warning function for all vehicle types (e.g.
@@ -17,7 +17,7 @@
             positioning etc.
           </app-card>
         </mat-grid-tile>
-        <mat-grid-tile [colspan]="4" [rowspan]="1">
+        <mat-grid-tile [colspan]="2" [rowspan]="1">
           <app-card header="heelo"></app-card>
         </mat-grid-tile>
         <mat-grid-tile [colspan]="1" [rowspan]="1">
@@ -26,22 +26,22 @@
         <mat-grid-tile [colspan]="1" [rowspan]="1">
           <app-card header="heelo"></app-card>
         </mat-grid-tile>
-        <mat-grid-tile [colspan]="4" [rowspan]="2">
+        <mat-grid-tile [colspan]="2" [rowspan]="2">
           <app-card [centerText]="true">I am text centered</app-card>
         </mat-grid-tile>
         <mat-grid-tile [colspan]="2" [rowspan]="1">
           <app-card header="heelo"></app-card>
         </mat-grid-tile>
-        <mat-grid-tile [colspan]="3" [rowspan]="1">
+        <mat-grid-tile [colspan]="2" [rowspan]="1">
           <app-card header="heelo"></app-card>
         </mat-grid-tile>
-        <mat-grid-tile [colspan]="3" [rowspan]="1">
+        <mat-grid-tile [colspan]="2" [rowspan]="1">
           <app-card header="heelo"></app-card>
         </mat-grid-tile>
-        <mat-grid-tile [colspan]="3" [rowspan]="1">
+        <mat-grid-tile [colspan]="2" [rowspan]="1">
           <app-card header="heelo"></app-card>
         </mat-grid-tile>
-        <mat-grid-tile [colspan]="3" [rowspan]="1">
+        <mat-grid-tile [colspan]="2" [rowspan]="1">
           <app-card header="heelo"></app-card>
         </mat-grid-tile>
       </mat-grid-list>

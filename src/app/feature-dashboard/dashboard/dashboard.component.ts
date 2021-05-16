@@ -8,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardComponent implements OnInit {
   showCategories = false;
   isOpenCart: boolean;
+  breakpoint: number;
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.breakpoint = (window.innerWidth <= 600) ? 2 : 6;
+  }
 
   openShoppingCart(openEvent: boolean) {
     this.isOpenCart = openEvent;
@@ -19,5 +22,9 @@ export class DashboardComponent implements OnInit {
 
   closeShoppingCart() {
     this.isOpenCart = false;
+  }
+
+  onResize(event) {
+    this.breakpoint = (event.target.innerWidth <= 600) ? 2 : 6;
   }
 }
