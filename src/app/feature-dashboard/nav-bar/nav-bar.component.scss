@@ -1,12 +1,12 @@
-@import "../../../styles/style-variable.scss";
+@import '../../../styles/style-variable.scss';
 
 .mat-list-item {
-    color: $text-color;
+  color: $text-color;
 }
 
 .home-button {
-	width: 100%;
-	background-color: $default-background;
-    color: $text-color;
-    text-align: start;
+  width: 100%;
+  background-color: $default-background;
+  color: $text-color;
+  text-align: start;
 }

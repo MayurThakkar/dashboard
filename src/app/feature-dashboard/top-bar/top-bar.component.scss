@@ -1,25 +1,25 @@
-@import "../../../styles/style-variable.scss";
+@import '../../../styles/style-variable.scss';
 
 .top-bar-card {
-    display: flex;
-    justify-content: space-between;
-    margin: 15px;
+  display: flex;
+  justify-content: space-between;
+  margin: 15px;
 }
 
 .iconify {
-    margin: 5px;
+  margin: 8px;
 }
 
 .star-icon {
-    color: $highlight-color;
+  color: $highlight-color;
 }
 
 .name {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .cart-button {
-    cursor: pointer;
-    color: $text-color;
+  cursor: pointer;
+  color: $text-color;
 }

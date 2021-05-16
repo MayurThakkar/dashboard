@@ -1,16 +1,17 @@
 @import '~@angular/material/theming';
-@import "../../../styles/style-variable.scss";
+@import '../../../styles/style-variable.scss';
 
 @mixin nav-bar-theme($theme) {
-	$primary: map-get($theme, primary);
-	$accent: map-get($theme, accent);
-	$warn: map-get($theme, warn);
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
 }
 
-.mat-expansion-panel.nav-list{
-	background-color: $default-background;
+.mat-expansion-panel.nav-list {
+  background-color: $default-background;
 }
 
-mat-panel-title.mat-expansion-panel-header-title, mat-panel-description.mat-expansion-panel-header-description{
-	color: $text-color;
+mat-panel-title.mat-expansion-panel-header-title,
+mat-panel-description.mat-expansion-panel-header-description {
+  color: $text-color;
 }

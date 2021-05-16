@@ -1,25 +1,25 @@
 @import '~@angular/material/theming';
-@import "../../../styles/style-variable.scss";
+@import '../../../styles/style-variable.scss';
 
 @mixin dashboard-theme($theme) {
-	$primary: map-get($theme, primary);
-	$accent: map-get($theme, accent);
-	$warn: map-get($theme, warn);
-  	$foreground: map-get($theme, foreground);
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $foreground: map-get($theme, foreground);
 }
 
 .mat-sidenav-container.mat-drawer-container {
-	background-color: $default-background;
-	color: $text-color;
+  background-color: $default-background;
+  color: $text-color;
 
-	.mat-drawer-backdrop.mat-drawer-shown {
-		background-color: transparent;
-	}
+  .mat-drawer-backdrop.mat-drawer-shown {
+    background-color: transparent;
+  }
 }
 
 .side-nav {
-	margin: 0;
-	.mat-drawer {
-		background: $default-foreground;
-	}
+  margin: 0;
+  .mat-drawer {
+    background: $default-foreground;
+  }
 }

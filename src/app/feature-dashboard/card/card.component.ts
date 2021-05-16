@@ -3,16 +3,14 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss']
+  styleUrls: ['./card.component.scss'],
 })
 export class CardComponent implements OnInit {
-  @Input()header: string;
+  @Input() header: string;
 
-  @Input()centerText: boolean = false;
+  @Input() centerText: boolean = false;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

@@ -1,12 +1,11 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 @import '~bootstrap/scss/bootstrap-grid';
+@import '~@angular/material/theming';
+@import 'styles/style-variable.scss';
+@import 'styles/custom-theme.scss';
 
-@import "~@angular/material/theming";
-@import "styles/style-variable.scss";
-@import "styles/custom-theme.scss";
-
-@import "./app/feature-dashboard/dashboard/dashboard.component.theme.scss";
-@import "./app/feature-dashboard/nav-bar/nav-bar.component.theme.scss";
+@import './app/feature-dashboard/dashboard/dashboard.component.theme.scss';
+@import './app/feature-dashboard/nav-bar/nav-bar.component.theme.scss';
 
 @include mat-core();
 
@@ -14,11 +13,7 @@ $custom-theme-primary: mat-palette($custom-purple, 900);
 $custom-theme-accent: mat-palette($custom-blue, 700);
 $custom-theme-warn: mat-palette($custom-yellow, 900);
 
-$custom-theme: mat-light-theme(
-  $custom-theme-primary,
-  $custom-theme-accent,
-  $custom-theme-warn,
-);
+$custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $custom-theme-warn);
 
 @mixin custom-components-theme($theme) {
   @include dashboard-theme($theme);
@@ -33,7 +28,7 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
   background: $default-background;
   color: $text-color;
   @include custom-components-theme($custom-theme);

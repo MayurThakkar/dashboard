@@ -4,13 +4,13 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatBadgeModule } from '@angular/material/badge';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatExpansionModule} from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -30,16 +30,24 @@ import { DataService } from './feature-dashboard/data.service';
 import { OutsideClickDirective } from './directive/outside-click.directive';
 
 @NgModule({
-  declarations: [AppComponent, DashboardComponent, NavBarComponent, TopBarComponent, CardComponent, CartComponent, OutsideClickDirective],
+  declarations: [
+    AppComponent,
+    DashboardComponent,
+    NavBarComponent,
+    TopBarComponent,
+    CardComponent,
+    CartComponent,
+    OutsideClickDirective,
+  ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    MatBadgeModule,
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
-    MatExpansionModule,
     MatGridListModule,
     MatListModule,
     MatMenuModule,

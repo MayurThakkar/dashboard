@@ -7,7 +7,7 @@ import { DashboardService } from '../dashboard-service.service';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.scss']
+  styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent implements OnInit, OnDestroy {
   private _unsubscribe = new Subject<void>();
@@ -16,7 +16,7 @@ export class CartComponent implements OnInit, OnDestroy {
 
   showClose: boolean = false;
 
-  constructor(private dashboardService: DashboardService) { }
+  constructor(private dashboardService: DashboardService) {}
 
   ngOnInit(): void {
     this.getCartItems();
@@ -28,17 +28,20 @@ export class CartComponent implements OnInit, OnDestroy {
 
   getCartItems() {
     let amount = 0;
-    this.dashboardService.getCartItems().pipe(takeUntil(this._unsubscribe)).subscribe((cartList: IShoppingCartItems[]) => {
-      this.shoppingCart = cartList;
-      if(cartList.length === 0) {
-        this.totalAmount = 0;
-        return;
-      }
-      cartList.forEach(element => {
-        amount += element.total;
-        this.totalAmount = amount;
+    this.dashboardService
+      .getCartItems()
+      .pipe(takeUntil(this._unsubscribe))
+      .subscribe((cartList: IShoppingCartItems[]) => {
+        this.shoppingCart = cartList;
+        if (cartList.length === 0) {
+          this.totalAmount = 0;
+          return;
+        }
+        cartList.forEach((element) => {
+          amount += element.total;
+          this.totalAmount = amount;
+        });
       });
-    });
   }
 
   changeItem(value, item: IShoppingCartItems) {
@@ -47,7 +50,7 @@ export class CartComponent implements OnInit, OnDestroy {
   }
 
   updateCartItem(item: IShoppingCartItems, isAdd: boolean) {
-    isAdd ? item.count += 1 : item.count -= 1;
+    isAdd ? (item.count += 1) : (item.count -= 1);
     this.editCartItem(item);
   }
 
@@ -68,7 +71,7 @@ export class CartComponent implements OnInit, OnDestroy {
   }
 
   removeAll() {
-    if(this.shoppingCart.length == 0) {
+    if (this.shoppingCart.length == 0) {
       return;
     }
     this.shoppingCart.forEach((item) => this.removeCartItem(item));

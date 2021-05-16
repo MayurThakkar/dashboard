@@ -1,27 +1,33 @@
 <mat-card class="row cart-card">
-    <mat-card-header>
-        <mat-card-title>
-            My Cart
-        </mat-card-title>
-    </mat-card-header>
-    <mat-card-content class="cart-card-content">
-        <div *ngFor="let item of shoppingCart">
-            <div class="cart-items">
-               <span>{{item.name}}</span>
-               <div class="quantity">
-                    <!-- <button mat-icon-button class="quantity-button" (click)="updateCartItem(item, false)">-</button> -->
-                    <input type="button" value="-" class="quantity-button" (click)="updateCartItem(item, false)">
-                    <input class="quantity-count" step="1" [ngModel]="item.count" (ngModelChange)="changeItem($event, item)">
-                    <input type="button" value="+" class="quantity-button" (click)="updateCartItem(item, true)">
-                    <!-- <button mat-icon-button class="quantity-button" (click)="updateCartItem(item, true)">+</button> -->
-                </div>
-                <div>
-                    <span>{{item.total | currency}}</span>
-                    <a (click)="removeCartItem(item)"><span class="iconify remove-item" data-icon="codicon:close" data-inline="false"></span></a>
-                </div>
-            </div>
+  <mat-card-header>
+    <mat-card-title> My Cart </mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="cart-card-content">
+    <div *ngFor="let item of shoppingCart">
+      <div class="cart-items">
+        <span>{{ item.name }}</span>
+        <div class="quantity">
+          <input type="button" value="-" class="quantity-button" (click)="updateCartItem(item, false)" />
+          <input class="quantity-count" step="1" [ngModel]="item.count" (ngModelChange)="changeItem($event, item)" />
+          <input type="button" value="+" class="quantity-button" (click)="updateCartItem(item, true)" />
         </div>
-        <div class="total-items" *ngIf="shoppingCart?.length != 0"><span>Total:</span>{{totalAmount | currency}}</div>
-        <button mat-raised-button color="primary" class="checkout-button" (click)="checkoutTheCart()" [disabled]="shoppingCart?.length == 0">Checkout</button>
-    </mat-card-content>
+        <div>
+          <span>{{ item.total | currency }}</span>
+          <a (click)="removeCartItem(item)"
+            ><span class="iconify remove-item" data-icon="codicon:close" data-inline="false"></span
+          ></a>
+        </div>
+      </div>
+    </div>
+    <div class="total-items" *ngIf="shoppingCart?.length != 0"><span>Total:</span>{{ totalAmount | currency }}</div>
+    <button
+      mat-raised-button
+      color="primary"
+      class="checkout-button"
+      (click)="checkoutTheCart()"
+      [disabled]="shoppingCart?.length == 0"
+    >
+      Checkout
+    </button>
+  </mat-card-content>
 </mat-card>
