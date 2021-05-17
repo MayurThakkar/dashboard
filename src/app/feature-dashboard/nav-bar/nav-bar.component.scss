@@ -6,7 +6,57 @@
 
 .home-button {
   width: 100%;
+  margin-top: 10px;
   background-color: $default-background;
   color: $text-color;
   text-align: start;
+}
+
+.button-text {
+  display: flex;
+  justify-content: space-between;
+}
+
+.category-list {
+  margin: 20px 0 0 15px;
+}
+
+.list-item {
+  color: $text-color;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.category-text {
+  color: $circle-1-color;
+}
+
+.item-text {
+  display: flex;
+  justify-content: space-between;
+}
+
+.feature-text {
+  color: $circle-4-color;
+  background-color: $circle-4-background;
+  border-radius: 25px;
+  padding: 2px 10px 2px 10px;
+}
+
+.item-icon {
+  margin-right: 5px;
+}
+
+.arrow-icon {
+  margin-left: 10px;
+  color: $icon-color;
+  width: 14px;
+  height: 14px;
+}
+
+.category-count {
+  color: $highlight-color;
+  background-color: $item-count-text-background;
+  border-radius: 50%;
+  padding: 5px;
 }

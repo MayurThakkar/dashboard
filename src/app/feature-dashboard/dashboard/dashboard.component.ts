@@ -1,3 +1,4 @@
+import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,15 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  showCategories = false;
   isOpenCart: boolean;
-  breakpoint: number;
 
-  constructor() {}
+  constructor(private breakpointObserver: BreakpointObserver) {}
 
-  ngOnInit(): void {
-    this.breakpoint = (window.innerWidth <= 600) ? 2 : 6;
-  }
+  ngOnInit(): void {}
 
   openShoppingCart(openEvent: boolean) {
     this.isOpenCart = openEvent;
@@ -22,9 +19,5 @@ export class DashboardComponent implements OnInit {
 
   closeShoppingCart() {
     this.isOpenCart = false;
-  }
-
-  onResize(event) {
-    this.breakpoint = (event.target.innerWidth <= 600) ? 2 : 6;
   }
 }

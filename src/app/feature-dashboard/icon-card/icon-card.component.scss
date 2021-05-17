@@ -1,0 +1,33 @@
+@import '../../../styles/style-variable.scss';
+
+.icon-card {
+  display: flex;
+  justify-content: space-between;
+}
+
+.image {
+  height: 22px;
+  border-radius: 50%;
+  padding: 12px;
+  font-size: 14px;
+}
+
+.image-1 {
+  color: $circle-1-color;
+  background-color: $circle-1-background;
+}
+
+.image-2 {
+  color: $circle-2-color;
+  background-color: $circle-2-background;
+}
+
+.image-3 {
+  color: $circle-3-color;
+  background-color: $circle-3-background;
+}
+
+.image-4 {
+  color: $circle-4-color;
+  background-color: $circle-4-background;
+}

@@ -1,61 +1,61 @@
-<ng-container>
-  <mat-nav-list class="nav-list">
-    <button mat-flat-button class="home-button" (click)="showCategories = !showCategories">
-      <span class="iconify" data-icon="feather-home" data-inline="false"></span>
-      Home
-    </button>
-    <div *ngIf="showCategories">
-      <a>Category 1</a>
-      <a mat-list-item>
-        <button mat-flat-button color="accent">
-          <span class="iconify" data-icon="feather-mail" data-inline="false"></span>
-          Email
-        </button>
-      </a>
-      <a mat-list-item>
-        <button mat-flat-button color="accent">
-          <span class="iconify" data-icon="feather-message-square" data-inline="false"></span>
-          Chat
-        </button>
-      </a>
-      <a mat-list-item>
-        <button mat-flat-button color="accent">
-          <span class="iconify" data-icon="feather-check-square" data-inline="false"></span>
-          Todo
-        </button>
-      </a>
-      <a mat-list-item>
-        <button mat-flat-button color="accent">
-          <span class="iconify" data-icon="feather-calendar" data-inline="false"></span>
-          Calender
-        </button>
-      </a>
-      <a mat-list-item>
-        <button mat-flat-button color="accent">
-          <span class="iconify" data-icon="feather-shopping-cart" data-inline="false"></span>
-          eCommerce
-        </button>
-      </a>
-
-      <a mat-list-item>Category 2</a>
-      <a mat-list-item>
-        <button mat-flat-button color="accent">
-          <span class="iconify" data-icon="feather-type" data-inline="false"></span>
-          Typography
-        </button>
-      </a>
-      <a mat-list-item>
-        <button mat-flat-button color="accent">
-          <span class="iconify" data-icon="feather-eye" data-inline="false"></span>
-          Feather
-        </button>
-      </a>
-      <a mat-list-item>
-        <button mat-flat-button color="accent">
-          <span class="iconify" data-icon="feather-credit-card" data-inline="false"></span>
-          Cards
-        </button>
-      </a>
+<mat-nav-list class="nav-list">
+  <button mat-flat-button class="home-button" (click)="showCategories = !showCategories">
+    <div class="button-text">
+      <span>
+        <span class="iconify" data-icon="feather-home" data-inline="false"></span>
+        Home
+      </span>
+      <span>
+        <span class="category-count">2</span>
+        <span *ngIf="!showCategories"
+          ><span class="iconify arrow-icon" data-icon="dashicons:arrow-right-alt2" data-inline="false"></span
+        ></span>
+        <span *ngIf="showCategories"
+          ><span class="iconify arrow-icon" data-icon="dashicons:arrow-down-alt2" data-inline="false"></span
+        ></span>
+      </span>
     </div>
-  </mat-nav-list>
-</ng-container>
+  </button>
+  <div *ngIf="showCategories">
+    <nav id="sidebar">
+      <ul class="list-unstyled components category-list">
+        <p class="list-item category-text">Category 1</p>
+        <li class="list-item" *ngFor="let category of categories1">
+          <span>
+            <span class="iconify item-icon" [attr.data-icon]="category?.icon" data-inline="false"></span>
+            <span>{{ category?.name }}</span>
+          </span>
+          <span>
+            <span *ngIf="category?.featuretext === 'new'" class="feature-text">{{ category?.featuretext }}</span>
+            <span
+              *ngIf="category?.featuretext === 'new'"
+              class="iconify arrow-icon"
+              data-icon="dashicons:arrow-right-alt2"
+              data-inline="false"
+            ></span>
+          </span>
+        </li>
+      </ul>
+      <ul class="list-unstyled components category-list">
+        <p class="list-item category-text">Category 2</p>
+        <li class="list-item" *ngFor="let category of categories2">
+          <a href="#" class="item-text">
+            <span>
+              <span class="iconify item-icon" [attr.data-icon]="category?.icon" data-inline="false"></span>
+              <span>{{ category?.name }}</span>
+            </span>
+            <span>
+              <span *ngIf="category?.featuretext === 'new'" class="feature-text">{{ category?.featuretext }}</span>
+              <span
+                *ngIf="category?.featuretext === 'new'"
+                class="iconify arrow-icon"
+                data-icon="dashicons:arrow-right-alt2"
+                data-inline="false"
+              ></span>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</mat-nav-list>

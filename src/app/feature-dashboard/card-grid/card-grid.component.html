@@ -1,0 +1,30 @@
+<div *ngIf="gridLayout$ | async as gridLayout">
+  <mat-grid-list [cols]="gridLayout?.columns" rowHeight="180px">
+    <mat-grid-tile [colspan]="gridLayout?.defaultCard.cols" [rowspan]="gridLayout?.defaultCard.rows">
+      <app-card header="Continental Engineering Services">
+        <app-news-card></app-news-card>
+      </app-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="gridLayout?.iconCard.cols" [rowspan]="gridLayout?.iconCard.rows">
+      <app-card header="Title" notification="update N month(s) ago"></app-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="gridLayout?.miniCard.cols" [rowspan]="gridLayout?.miniCard.rows">
+      <app-card header="Title"></app-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="gridLayout?.miniCard.cols" [rowspan]="gridLayout?.miniCard.rows">
+      <app-card header="Title"></app-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="gridLayout?.centerCard.cols" [rowspan]="gridLayout?.centerCard.rows">
+      <app-card [centerText]="true">I am text centered</app-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="gridLayout?.defaultCard.cols" [rowspan]="gridLayout?.defaultCard.rows">
+      <app-card header="Title"></app-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="gridLayout?.chartCard.cols" [rowspan]="gridLayout?.chartCard.rows">
+      <app-card header="Title"></app-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="gridLayout?.chartCard.cols" [rowspan]="gridLayout?.chartCard.rows">
+      <app-card header="Title"></app-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

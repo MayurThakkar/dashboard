@@ -29,6 +29,7 @@ body {
 body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
+  font-size: 14px;
   background: $default-background;
   color: $text-color;
   @include custom-components-theme($custom-theme);
@@ -37,5 +38,10 @@ body {
     background-color: $default-foreground;
     color: $text-color;
     border-radius: 8px;
+  }
+
+  .iconify {
+    width: 22px;
+    height: 22px;
   }
 }

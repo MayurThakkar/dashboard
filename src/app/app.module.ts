@@ -28,6 +28,9 @@ import { CartComponent } from './feature-dashboard/cart/cart.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { DataService } from './feature-dashboard/data.service';
 import { OutsideClickDirective } from './directive/outside-click.directive';
+import { IconCardComponent } from './feature-dashboard/icon-card/icon-card.component';
+import { NewsCardComponent } from './feature-dashboard/news-card/news-card.component';
+import { CardGridComponent } from './feature-dashboard/card-grid/card-grid.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +41,9 @@ import { OutsideClickDirective } from './directive/outside-click.directive';
     CardComponent,
     CartComponent,
     OutsideClickDirective,
+    IconCardComponent,
+    NewsCardComponent,
+    CardGridComponent,
   ],
   imports: [
     AppRoutingModule,
