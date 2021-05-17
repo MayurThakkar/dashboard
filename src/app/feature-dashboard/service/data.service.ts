@@ -1,4 +1,4 @@
-import * as cartJson from '../../assets/data/shopping_cart_items.json';
+import * as cartJson from '../../../assets/data/shopping_cart_items.json';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Injectable } from '@angular/core';
 

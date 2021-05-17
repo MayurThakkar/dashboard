@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { IShoppingCartItems } from '../cart-items.model';
-import { DashboardService } from '../dashboard-service.service';
+import { IShoppingCartItems } from '../../feature-dashboard/model/cart-items.model';
+import { DashboardService } from '../../feature-dashboard/service/dashboard-service.service';
 
 @Component({
   selector: 'app-cart',

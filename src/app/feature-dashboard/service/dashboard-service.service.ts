@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IShoppingCartItems } from './cart-items.model';
+import { IShoppingCartItems } from '../model/cart-items.model';
 
 const URL = 'api/shopping_cart_items/';
 

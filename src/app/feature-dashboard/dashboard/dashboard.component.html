@@ -1,13 +1,3 @@
-<div class="main-wrapper">
-  <mat-sidenav-container class="row side-nav-container">
-    <mat-sidenav class="col-xl-2 d-none d-xl-block side-nav" opened mode="side">
-      <app-nav-bar></app-nav-bar>
-    </mat-sidenav>
-
-    <mat-sidenav-content class="col-xl-10 col side-nav-content">
-      <app-top-bar class="sticky-top-bar" (openCart)="openShoppingCart($event)"></app-top-bar>
-      <app-cart *ngIf="isOpenCart" class="shopping-cart" (outsideClick)="closeShoppingCart()"></app-cart>
-      <app-card-grid></app-card-grid>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-</div>
+<app-layout>
+  <app-card-grid></app-card-grid>
+</app-layout>

@@ -5,7 +5,7 @@
 @import 'styles/custom-theme.scss';
 
 @import './app/feature-dashboard/dashboard/dashboard.component.theme.scss';
-@import './app/feature-dashboard/nav-bar/nav-bar.component.theme.scss';
+@import './app/shared/nav-bar/nav-bar.component.theme.scss';
 
 @include mat-core();
 
