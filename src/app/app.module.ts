@@ -9,9 +9,11 @@ import { OutsideClickDirective } from './directive/outside-click.directive';
 import { SharedModule } from './shared/shared.module';
 import { DashboardModule } from './feature-dashboard/dashboard.module';
 import { CoreModule } from './shared/core.module';
+import { NotFoundComponent } from './feature-not-found/not-found/not-found.component';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
-  declarations: [AppComponent, OutsideClickDirective],
+  declarations: [AppComponent, OutsideClickDirective, NotFoundComponent],
   imports: [
     CoreModule,
     SharedModule,
@@ -19,6 +21,7 @@ import { CoreModule } from './shared/core.module';
     AppRoutingModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(DataService),
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
