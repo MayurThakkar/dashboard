@@ -8,7 +8,6 @@ Run `npm run start` for a dev server. Navigate to `http://localhost:4200/`.
 
 Run `ng build` to build the project.
 
-
 ## Below points are used and implemented:
 
 1. **Angular material & Bootstrap**:- For designing the page.
@@ -19,7 +18,6 @@ Run `ng build` to build the project.
 6. **Created a 404 not found page**, if any other url path used for example: 'http://localhost:4200/89'.
 7. Used prettier for code formatting.
 8. Used eslint for code quality.
-
 
 ## Screenshots
 

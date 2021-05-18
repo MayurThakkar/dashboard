@@ -1,15 +1,15 @@
 @import '../../../styles/style-variable.scss';
 
 .container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: $text-color;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: $text-color;
 }
 
-.home-button{
-    background-color: $primary-color;
+.home-button {
+  background-color: $primary-color;
 }

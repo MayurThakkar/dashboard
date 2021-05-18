@@ -67,11 +67,11 @@ export class CartComponent implements OnInit, OnDestroy {
 
   editCartItem(item: IShoppingCartItems) {
     item.total = item.price * item.count;
-    this.store.dispatch(CartActions.updateCartData({cart: item}));
+    this.store.dispatch(CartActions.updateCartData({ cart: item }));
   }
 
   removeCartItem(item: IShoppingCartItems) {
-    this.store.dispatch(CartActions.deleteCartData({id: item.id}));
+    this.store.dispatch(CartActions.deleteCartData({ id: item.id }));
   }
 
   checkoutTheCart() {

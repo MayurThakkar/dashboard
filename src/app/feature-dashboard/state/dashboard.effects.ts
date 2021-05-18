@@ -16,9 +16,9 @@ export class DashBoardEffects {
       ofType(cartActions.CartActionTypes.REQUEST_ITEMS),
       withLatestFrom(this.store.select(getCartLoaded)),
       filter(([_, loaded]) => !loaded),
-      exhaustMap(() => this.dashBoardService.getCartItems().pipe(map((carts) => 
-        cartActions.loadItemsSuccess({carts})
-      )))
+      exhaustMap(() =>
+        this.dashBoardService.getCartItems().pipe(map((carts) => cartActions.loadItemsSuccess({ carts })))
+      )
     )
   );
 
@@ -27,33 +27,32 @@ export class DashBoardEffects {
       this.actions$.pipe(
         ofType(cartActions.CartActionTypes.UPDATE_AVAILABLE_CART_DATA),
         switchMap((action: any) =>
-          this.dashBoardService
-            .updateItem(action.cart)
-            .pipe(map((cart) => {
-                const updatedCart: Update<IShoppingCartItems> = {
-                    id: action.cart.id,
-                    changes: {
-                      ...action.cart,
-                    },
-                  };
-                cartActions.updateCartDataSuccess({cart: updatedCart});
-            }))
+          this.dashBoardService.updateItem(action.cart).pipe(
+            map((cart) => {
+              const updatedCart: Update<IShoppingCartItems> = {
+                id: action.cart.id,
+                changes: {
+                  ...action.cart,
+                },
+              };
+              cartActions.updateCartDataSuccess({ cart: updatedCart });
+            })
+          )
         )
       ),
     { dispatch: false }
   );
 
-  deleteCartItem$ = createEffect(
-    () =>
-      this.actions$.pipe(
-        ofType(cartActions.CartActionTypes.DELETE_AVAILABLE_CART_DATA),
-        switchMap((action: any) => {
-            console.log(action);
-          return this.dashBoardService
-            .deleteItem(action.id)
-            .pipe(map((result) => cartActions.deleteCartSucess({id: action.id})));
-        })
-      ),
+  deleteCartItem$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(cartActions.CartActionTypes.DELETE_AVAILABLE_CART_DATA),
+      switchMap((action: any) => {
+        console.log(action);
+        return this.dashBoardService
+          .deleteItem(action.id)
+          .pipe(map((result) => cartActions.deleteCartSucess({ id: action.id })));
+      })
+    )
   );
 
   constructor(

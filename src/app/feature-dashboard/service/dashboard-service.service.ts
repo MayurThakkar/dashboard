@@ -20,6 +20,6 @@ export class DashboardService {
   }
 
   deleteItem(itemId: string): Observable<IShoppingCartItems> {
-    return (this.httpClient.delete(URL + itemId) as Observable<IShoppingCartItems>);
+    return this.httpClient.delete(URL + itemId) as Observable<IShoppingCartItems>;
   }
 }
