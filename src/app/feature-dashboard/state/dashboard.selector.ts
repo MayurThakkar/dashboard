@@ -1,5 +1,5 @@
-import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { CartDataState, cartsAdapter } from './dashboard.reducer';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
 
 export const getCartItemState = createFeatureSelector<CartDataState>('cartItemData');
 export const cartsSelectors = cartsAdapter.getSelectors();

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+
+import { CartDataState } from './feature-dashboard/state/dashboard.reducer';
 import { Store } from '@ngrx/store';
 import { loadItemsRequested } from './feature-dashboard/state/dashboard.action';
-import { CartDataState } from './feature-dashboard/state/dashboard.reducer';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +10,6 @@ import { CartDataState } from './feature-dashboard/state/dashboard.reducer';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  title = 'dashboard';
-
   constructor(private store: Store<CartDataState>) {}
 
   ngOnInit() {

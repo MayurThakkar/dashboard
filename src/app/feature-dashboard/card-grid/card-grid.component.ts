@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import * as gridSizeJson from './grid-card-size.json';
+
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Component, OnInit } from '@angular/core';
+
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import * as gridSizeJson from './grid-card-size.json';
 
 @Component({
   selector: 'app-card-grid',

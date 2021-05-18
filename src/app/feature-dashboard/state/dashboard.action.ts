@@ -1,6 +1,7 @@
-import { Update } from '@ngrx/entity';
 import { createAction, props } from '@ngrx/store';
+
 import { IShoppingCartItems } from '../model/cart-items.model';
+import { Update } from '@ngrx/entity';
 
 export enum CartActionTypes {
   REQUEST_ITEMS = '[CartItem] Request cart item data',

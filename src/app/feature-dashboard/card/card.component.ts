@@ -6,9 +6,9 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./card.component.scss'],
 })
 export class CardComponent implements OnInit {
-  @Input() header: string = '';
-  @Input() notification: string = '';
-  @Input() centerText: boolean = false;
+  @Input() header = '';
+  @Input() notification = '';
+  @Input() centerText = false;
 
   constructor() {}
 

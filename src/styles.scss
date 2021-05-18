@@ -21,7 +21,6 @@ $custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $cus
   @include nav-bar-theme($theme);
   @include not-found-theme($theme);
   @include angular-material-theme($theme);
-  @include mat-sidenav-theme($theme);
 }
 
 html,
