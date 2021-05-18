@@ -1,27 +1,44 @@
-# Dashboard
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
+Run 'npm install' to install all packages.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `npm run start` for a dev server. Navigate to `http://localhost:4200/`.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `ng build` to build the project.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Below points are used and implemented:
 
-## Running end-to-end tests
+1. **Angular material & Bootstrap**:- For designing the page.
+2. **Implemented the NGRX state management**:- For making app better reactive to/from the data.
+3. Iconify: For using the icons in the app.
+4. **Angular theming**: For setting the standard color globally and use it more easily for developing.
+5. Structured the folders according to the feature and shared components & dividing the modules for **Lazy loading**.
+6. **Created a 404 not found page**, if any other url path used for example: 'http://localhost:4200/89'.
+7. Used prettier for code formatting.
+8. Used eslint for code quality.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
+## Screenshots
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Desktop size dasboard: Shopping cart is filled with list item:
+
+![desktop page](screenshots/desktop.png)
+
+Desktop size dasboard: After checkout the list is empty and shows an alert message 'The payment is finished successfully':
+
+![checkout](screenshots/checkout.png)
+
+Mobile size dashboard:
+
+![mobile-size page](screenshots/mobile-size.png)
+
+Tablet size dashboard:
+
+![Tablet page](screenshots/Tablet.png)
+
+Page Not found:
+
+![404 page](screenshots/404.png)

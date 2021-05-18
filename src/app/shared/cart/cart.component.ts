@@ -8,7 +8,6 @@ import * as CartSelector from 'src/app/feature-dashboard/state/dashboard.selecto
 import { IShoppingCartItems } from '../../feature-dashboard/model/cart-items.model';
 import { DashboardService } from '../../feature-dashboard/service/dashboard-service.service';
 import { CartDataState } from 'src/app/feature-dashboard/state/dashboard.reducer';
-import * as EventEmitter from 'events';
 
 @Component({
   selector: 'app-cart',
