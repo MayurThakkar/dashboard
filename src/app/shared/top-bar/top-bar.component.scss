@@ -1,8 +1,6 @@
 @import '../../../styles/style-variable.scss';
 
 .top-bar-card {
-  display: flex;
-  justify-content: space-between;
   margin: 15px;
 }
 
@@ -14,14 +12,22 @@
   color: $highlight-color;
 }
 
-.name {
-  display: flex;
-  flex-direction: column;
+.right-block {
+  text-align: right;
+}
+
+.user-name {
+  display: inline-block;
+  text-align: right;
+}
+
+.profile {
+  font-size: 12px;
 }
 
 .cart-button {
   cursor: pointer;
-  color: $text-color;
+  margin: 0 12px 0 12px;
   > .iconify {
     margin: 0;
   }

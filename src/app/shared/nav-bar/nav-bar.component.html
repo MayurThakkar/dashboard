@@ -1,0 +1,61 @@
+<mat-nav-list class="nav-list">
+  <button mat-flat-button class="home-button" (click)="showCategories = !showCategories">
+    <div class="button-text">
+      <span>
+        <span class="iconify" data-icon="feather-home" data-inline="false"></span>
+        Home
+      </span>
+      <span>
+        <span class="category-count">2</span>
+        <span *ngIf="!showCategories"
+          ><span class="iconify arrow-icon" data-icon="dashicons:arrow-right-alt2" data-inline="false"></span
+        ></span>
+        <span *ngIf="showCategories"
+          ><span class="iconify arrow-icon" data-icon="dashicons:arrow-down-alt2" data-inline="false"></span
+        ></span>
+      </span>
+    </div>
+  </button>
+  <div *ngIf="showCategories">
+    <nav id="sidebar">
+      <ul class="list-unstyled components category-list">
+        <p class="list-item category-text">Category 1</p>
+        <li class="list-item" *ngFor="let category of categories1">
+          <span>
+            <span class="iconify item-icon" [attr.data-icon]="category?.icon" data-inline="false"></span>
+            <span>{{ category?.name }}</span>
+          </span>
+          <span>
+            <span *ngIf="category?.featuretext === 'new'" class="feature-text">{{ category?.featuretext }}</span>
+            <span
+              *ngIf="category?.featuretext === 'new'"
+              class="iconify arrow-icon"
+              data-icon="dashicons:arrow-right-alt2"
+              data-inline="false"
+            ></span>
+          </span>
+        </li>
+      </ul>
+      <ul class="list-unstyled components category-list">
+        <p class="list-item category-text">Category 2</p>
+        <li class="list-item" *ngFor="let category of categories2">
+          <a href="#" class="item-text">
+            <span>
+              <span class="iconify item-icon" [attr.data-icon]="category?.icon" data-inline="false"></span>
+              <span>{{ category?.name }}</span>
+            </span>
+            <span>
+              <span *ngIf="category?.featuretext === 'new'" class="feature-text">{{ category?.featuretext }}</span>
+              <span
+                *ngIf="category?.featuretext === 'new'"
+                class="iconify arrow-icon"
+                data-icon="dashicons:arrow-right-alt2"
+                data-inline="false"
+              ></span>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</mat-nav-list>

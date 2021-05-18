@@ -1,4 +1,6 @@
-.dashboard-card {
+@import '../../../styles/style-variable.scss';
+
+.card-container {
   position: absolute;
   top: 15px;
   left: 15px;
@@ -6,14 +8,36 @@
   bottom: 15px;
 }
 
-.dashboard-card-content {
+.header-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-text {
+  font-size: 20px;
+}
+
+.notification-text {
+  font-size: 14px;
+  color: $text-color;
+}
+
+.header-text,
+.notification-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-content {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  overflow: auto;
 }
 
-.center-text.dashboard-card-content {
+.center-text.card-content {
   text-align: center;
 }
 

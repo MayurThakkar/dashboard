@@ -1,66 +1,29 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatBadgeModule } from '@angular/material/badge';
-import { MatCardModule } from '@angular/material/card';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatListModule } from '@angular/material/list';
-import { MatSelectModule } from '@angular/material/select';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './feature-dashboard/dashboard/dashboard.component';
-import { DashboardService } from './feature-dashboard/dashboard-service.service';
-import { NavBarComponent } from './feature-dashboard/nav-bar/nav-bar.component';
-import { TopBarComponent } from './feature-dashboard/top-bar/top-bar.component';
-import { CardComponent } from './feature-dashboard/card/card.component';
-import { CartComponent } from './feature-dashboard/cart/cart.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { DataService } from './feature-dashboard/data.service';
+import { DataService } from './feature-dashboard/service/data.service';
 import { OutsideClickDirective } from './directive/outside-click.directive';
+import { SharedModule } from './shared/shared.module';
+import { DashboardModule } from './feature-dashboard/dashboard.module';
+import { CoreModule } from './shared/core.module';
+import { NotFoundComponent } from './feature-not-found/not-found/not-found.component';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    DashboardComponent,
-    NavBarComponent,
-    TopBarComponent,
-    CardComponent,
-    CartComponent,
-    OutsideClickDirective,
-  ],
+  declarations: [AppComponent, OutsideClickDirective, NotFoundComponent],
   imports: [
+    CoreModule,
+    SharedModule,
+    DashboardModule,
     AppRoutingModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    MatBadgeModule,
-    MatButtonModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatGridListModule,
-    MatListModule,
-    MatMenuModule,
-    MatIconModule,
-    MatInputModule,
-    MatSidenavModule,
-    MatSelectModule,
-    MatSnackBarModule,
-    MatToolbarModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(DataService),
+    MatButtonModule,
   ],
-  providers: [DashboardService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
