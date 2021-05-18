@@ -19,10 +19,9 @@ export class CartComponent implements OnInit, OnDestroy {
   private unSubscribe = new Subject<void>();
   shoppingCart$: Observable<IShoppingCartItems[]>;
   shoppingCart: IShoppingCartItems[];
-  totalAmount: number;
+  totalAmount = 0;
 
   showClose = false;
-
   emptyBadgeLength = false;
 
   constructor(private dashboardService: DashboardService, private store: Store<CartDataState>) {

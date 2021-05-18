@@ -8,12 +8,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 import { NgModule } from '@angular/core';
 import { NotFoundComponent } from './feature-not-found/not-found/not-found.component';
-import { OutsideClickDirective } from './directive/outside-click.directive';
 import { SharedModule } from './shared/shared.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
-  declarations: [AppComponent, OutsideClickDirective, NotFoundComponent],
+  declarations: [AppComponent, NotFoundComponent],
   imports: [
     CoreModule,
     SharedModule,
