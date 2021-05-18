@@ -1,8 +1,10 @@
-import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Observable, Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-import { DashboardService } from 'src/app/feature-dashboard/service/dashboard-service.service';
-import { IShoppingCartItems } from '../../feature-dashboard/model/cart-items.model';
+import { IShoppingCartItems } from 'src/app/feature-dashboard/model/cart-items.model';
+import { CartDataState } from 'src/app/feature-dashboard/state/dashboard.reducer';
+import { getCartData } from 'src/app/feature-dashboard/state/dashboard.selector';
+import { CartComponent } from '../cart/cart.component';
 
 @Component({
   selector: 'app-top-bar',
@@ -11,23 +13,19 @@ import { IShoppingCartItems } from '../../feature-dashboard/model/cart-items.mod
 })
 export class TopBarComponent implements OnInit, OnDestroy {
   private _unSubscribe = new Subject<void>();
-  private _openCart = false;
+  openShoppingCart = false;
   cartItemSize$: Observable<IShoppingCartItems[]>;
+  cartListLength: number;
 
-  @Output() openCart = new EventEmitter<boolean>();
+  @ViewChild(CartComponent) cartComp: CartComponent;
 
-  constructor(private dashboardService: DashboardService) {}
+  constructor(private store: Store<CartDataState>) {}
 
   ngOnInit(): void {
-    this.cartItemSize$ = this.dashboardService.getCartItems().pipe(takeUntil(this._unSubscribe));
+    this.cartItemSize$ = this.store.select(getCartData);
   }
 
   ngOnDestroy(): void {
     this._unSubscribe.unsubscribe();
-  }
-
-  openShoppingCart() {
-    this._openCart = !this._openCart;
-    this.openCart.emit(this._openCart);
   }
 }

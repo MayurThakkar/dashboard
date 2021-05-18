@@ -1,8 +1,13 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Component, OnDestroy, OnInit, Output } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+
+import * as CartActions from 'src/app/feature-dashboard/state/dashboard.action';
+import * as CartSelector from 'src/app/feature-dashboard/state/dashboard.selector';
 import { IShoppingCartItems } from '../../feature-dashboard/model/cart-items.model';
 import { DashboardService } from '../../feature-dashboard/service/dashboard-service.service';
+import { CartDataState } from 'src/app/feature-dashboard/state/dashboard.reducer';
 
 @Component({
   selector: 'app-cart',
@@ -11,14 +16,20 @@ import { DashboardService } from '../../feature-dashboard/service/dashboard-serv
 })
 export class CartComponent implements OnInit, OnDestroy {
   private _unsubscribe = new Subject<void>();
+  shoppingCart$: Observable<IShoppingCartItems[]>;
   shoppingCart: IShoppingCartItems[];
   totalAmount: number;
 
   showClose: boolean = false;
 
-  constructor(private dashboardService: DashboardService) {}
+  emptyBadgeLength: boolean;
+
+  constructor(private dashboardService: DashboardService, private store: Store<CartDataState>) {
+    this.shoppingCart$ = this.store.select(CartSelector.getCartData).pipe(takeUntil(this._unsubscribe));
+  }
 
   ngOnInit(): void {
+    this.store.dispatch(CartActions.loadItemsRequested());
     this.getCartItems();
   }
 
@@ -28,8 +39,8 @@ export class CartComponent implements OnInit, OnDestroy {
 
   getCartItems() {
     let amount = 0;
-    this.dashboardService
-      .getCartItems()
+    this.store
+      .select(CartSelector.getCartData)
       .pipe(takeUntil(this._unsubscribe))
       .subscribe((cartList: IShoppingCartItems[]) => {
         this.shoppingCart = cartList;
@@ -56,27 +67,16 @@ export class CartComponent implements OnInit, OnDestroy {
 
   editCartItem(item: IShoppingCartItems) {
     item.total = item.price * item.count;
-    this.dashboardService.updateItem(item).subscribe((res) => this.getCartItems());
+    this.store.dispatch(CartActions.updateCartData({cart: item}));
   }
 
   removeCartItem(item: IShoppingCartItems) {
-    const itemId = item.id;
-    this.dashboardService.deleteItem(itemId).subscribe(() => {
-      this.getCartItems();
-    });
+    this.store.dispatch(CartActions.deleteCartData({id: item.id}));
   }
 
   checkoutTheCart() {
-    this.removeAll();
-  }
-
-  removeAll() {
-    if (this.shoppingCart.length == 0) {
-      return;
-    }
-    this.shoppingCart.forEach((item) => this.removeCartItem(item));
-    this.getCartItems();
-    this.totalAmount = 0;
+    this.shoppingCart = [];
+    this.emptyBadgeLength = true;
     alert('The payment is finished successfully');
   }
 }
