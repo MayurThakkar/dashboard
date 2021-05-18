@@ -1,41 +1,34 @@
+import { createEntityAdapter, EntityState } from '@ngrx/entity';
+import { createReducer, on } from '@ngrx/store';
 import { IShoppingCartItems } from '../model/cart-items.model';
 import * as cartActions from './dashboard.action';
 
-export interface CartDataState {
-  cartItem: IShoppingCartItems[];
+export interface CartDataState extends EntityState<IShoppingCartItems> {
   isLoaded: boolean;
-  updateCartItem: IShoppingCartItems;
-  deleteCartItem: IShoppingCartItems;
-  error?: string | null;
 }
 
-const initialState: CartDataState = {
-  cartItem: [],
-  isLoaded: false,
-  updateCartItem: null,
-  deleteCartItem: null,
-  error: null,
-};
+export const cartsAdapter = createEntityAdapter<IShoppingCartItems>();
 
-export function reducer(state = initialState, action: cartActions.CartActions) {
-  switch (action.type) {
-    case cartActions.CartActionTypes.GET_AVAILABLE_CART_DATA:
-      return {
+const initialState: CartDataState = cartsAdapter.getInitialState({
+  isLoaded: false,
+});
+
+const _cartsReducer = createReducer(
+    initialState,
+    on(cartActions.updateCartDataSuccess, (state, action) => {
+      return cartsAdapter.updateOne(action.cart, state);
+    }),
+    on(cartActions.deleteCartSucess, (state, { id }) => {
+      return cartsAdapter.removeOne(id, state);
+    }),
+    on(cartActions.loadItemsSuccess, (state, action) => {
+      return cartsAdapter.setAll(action.carts, {
         ...state,
         isLoaded: true,
-        cartItem: action.payload,
-      };
-    case cartActions.CartActionTypes.UPDATE_AVAILABLE_CART_DATA:
-      return {
-        ...state,
-        updateCartItem: action.payload,
-      };
-    case cartActions.CartActionTypes.DELETE_AVAILABLE_CART_DATA:
-      return {
-        ...state,
-        deleteCartItem: action.payload,
-      };
-    default:
-      return state;
-  }
+      });
+    })
+  );
+
+export function reducer(state, action) {
+    return _cartsReducer(state, action);
 }

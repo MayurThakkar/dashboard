@@ -27,6 +27,7 @@ export class CartComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.store.dispatch(CartActions.loadItemsRequested());
     this.getCartItems();
   }
 
@@ -63,11 +64,11 @@ export class CartComponent implements OnInit, OnDestroy {
 
   editCartItem(item: IShoppingCartItems) {
     item.total = item.price * item.count;
-    this.store.dispatch(new CartActions.UpdateCartData(item));
+    this.store.dispatch(CartActions.updateCartData({cart: item}));
   }
 
   removeCartItem(item: IShoppingCartItems) {
-    this.store.dispatch(new CartActions.DeleteCartData(item));
+    this.store.dispatch(CartActions.deleteCartData({id: item.id}));
   }
 
   checkoutTheCart() {
@@ -75,9 +76,6 @@ export class CartComponent implements OnInit, OnDestroy {
   }
 
   removeAll() {
-    if (this.shoppingCart.length == 0) {
-      return;
-    }
     this.shoppingCart.forEach((item) => this.removeCartItem(item));
     this.getCartItems();
     this.totalAmount = 0;

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { LoadItemsRequested } from './feature-dashboard/state/dashboard.action';
+import { loadItemsRequested } from './feature-dashboard/state/dashboard.action';
 import { CartDataState } from './feature-dashboard/state/dashboard.reducer';
 
 @Component({
@@ -14,6 +14,6 @@ export class AppComponent implements OnInit {
   constructor(private store: Store<CartDataState>) {}
 
   ngOnInit() {
-    this.store.dispatch(new LoadItemsRequested());
+    this.store.dispatch(loadItemsRequested());
   }
 }
