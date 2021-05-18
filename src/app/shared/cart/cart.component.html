@@ -4,7 +4,7 @@
     <span *ngIf="shoppingCart" class="item-length">{{ shoppingCart?.length }} Items</span>
   </mat-card-header>
   <mat-card-content *ngIf="shoppingCart$ | async as cartList" class="cart-card-content">
-    <div *ngFor="let item of cartList">
+    <div *ngFor="let item of shoppingCart">
       <div class="cart-items">
         <span>{{ item.name }}</span>
         <div class="quantity">
