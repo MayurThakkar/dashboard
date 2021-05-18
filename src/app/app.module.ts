@@ -11,6 +11,9 @@ import { DashboardModule } from './feature-dashboard/dashboard.module';
 import { CoreModule } from './shared/core.module';
 import { NotFoundComponent } from './feature-not-found/not-found/not-found.component';
 import { MatButtonModule } from '@angular/material/button';
+import { StoreModule } from '@ngrx/store';
+import { reducer } from './feature-dashboard/state/dashboard.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [AppComponent, OutsideClickDirective, NotFoundComponent],
@@ -22,6 +25,9 @@ import { MatButtonModule } from '@angular/material/button';
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(DataService),
     MatButtonModule,
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],

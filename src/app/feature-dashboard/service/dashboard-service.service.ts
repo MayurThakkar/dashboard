@@ -9,17 +9,17 @@ const URL = 'api/shopping_cart_items/';
   providedIn: 'root',
 })
 export class DashboardService {
-  constructor(private _httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) {}
 
   getCartItems(): Observable<IShoppingCartItems[]> {
-    return this._httpClient.get(URL) as Observable<IShoppingCartItems[]>;
+    return this.httpClient.get(URL) as Observable<IShoppingCartItems[]>;
   }
 
   updateItem(item: IShoppingCartItems): Observable<IShoppingCartItems> {
-    return this._httpClient.put(URL + item.id, item) as Observable<IShoppingCartItems>;
+    return this.httpClient.put(URL + item.id, item) as Observable<IShoppingCartItems>;
   }
 
-  deleteItem(itemID: string): Observable<IShoppingCartItems> {
-    return this._httpClient.delete(URL + itemID) as Observable<IShoppingCartItems>;
+  deleteItem(item: IShoppingCartItems): Observable<IShoppingCartItems> {
+    return this.httpClient.delete(URL + item.id) as Observable<IShoppingCartItems>;
   }
 }
