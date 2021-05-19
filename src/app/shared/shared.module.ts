@@ -1,13 +1,14 @@
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { MaterialModule } from '../material.module';
 import { CartComponent } from './cart/cart.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { LayoutComponent } from './layout/layout.component';
+import { MaterialModule } from '../material.module';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { NgModule } from '@angular/core';
+import { OutsideClickDirective } from './directive/outside-click.directive';
 import { TopBarComponent } from './top-bar/top-bar.component';
 
-const components = [CartComponent, LayoutComponent, NavBarComponent, TopBarComponent];
+const components = [CartComponent, OutsideClickDirective, LayoutComponent, NavBarComponent, TopBarComponent];
 
 @NgModule({
   declarations: [components],

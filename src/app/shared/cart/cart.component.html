@@ -1,26 +1,26 @@
-<mat-card class="cart-card">
-  <mat-card-header class="justify-content-between">
+<mat-card class="d-flex flex-column cart-card">
+  <mat-card-header class="d-flex justify-content-between">
     <mat-card-title>My Cart</mat-card-title>
     <span *ngIf="shoppingCart" class="item-length">{{ shoppingCart?.length }} Items</span>
   </mat-card-header>
-  <mat-card-content *ngIf="shoppingCart$ | async as cartList" class="cart-card-content">
+  <mat-card-content *ngIf="shoppingCart$ | async as cartList" class="d-flex flex-column cart-card-content">
     <div *ngFor="let item of shoppingCart">
-      <div class="cart-items">
-        <span>{{ item.name }}</span>
-        <div class="quantity">
-          <input type="button" value="-" class="quantity-button" (click)="updateCartItem(item, false)" />
-          <input class="quantity-count" step="1" [ngModel]="item.count" (ngModelChange)="changeItem($event, item)" />
-          <input type="button" value="+" class="quantity-button" (click)="updateCartItem(item, true)" />
-        </div>
-        <div>
-          <span>{{ item.total | currency }}</span>
-          <a (click)="removeCartItem(item)"
-            ><span class="iconify remove-item" data-icon="codicon:close" data-inline="false"></span
-          ></a>
+      <div class="d-flex justify-content-between align-items-center cart-items">
+          <span>{{ item.name }}</span>
+          <div class="quantity">
+            <input type="button" value="-" class="quantity-button" (click)="updateCartItem(item, false)" />
+            <input class="quantity-count" step="1" [ngModel]="item.count" (ngModelChange)="changeItem($event, item)" />
+            <input type="button" value="+" class="quantity-button" (click)="updateCartItem(item, true)" />
+          </div>
+          <div>
+            <span>{{ item.total | currency }}</span>
+            <a (click)="removeCartItem(item)"
+              ><span class="iconify remove-item" data-icon="codicon:close" data-inline="false"></span
+            ></a>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="total-items" *ngIf="shoppingCart?.length != 0">
+    <div class="d-flex justify-content-between align-items-center total-items" *ngIf="shoppingCart?.length != 0">
       <span>Total:</span><span class="total-amount">{{ totalAmount | currency }}</span>
     </div>
     <button

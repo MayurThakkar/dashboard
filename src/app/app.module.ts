@@ -1,22 +1,18 @@
-import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
-
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { DataService } from './feature-dashboard/service/data.service';
-import { OutsideClickDirective } from './directive/outside-click.directive';
-import { SharedModule } from './shared/shared.module';
-import { DashboardModule } from './feature-dashboard/dashboard.module';
+import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './shared/core.module';
-import { NotFoundComponent } from './feature-not-found/not-found/not-found.component';
+import { DashboardModule } from './feature-dashboard/dashboard.module';
+import { DataService } from './feature-dashboard/service/data.service';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
-import { StoreModule } from '@ngrx/store';
-import { reducer } from './feature-dashboard/state/dashboard.reducer';
+import { NgModule } from '@angular/core';
+import { NotFoundComponent } from './feature-not-found/not-found/not-found.component';
+import { SharedModule } from './shared/shared.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
-  declarations: [AppComponent, OutsideClickDirective, NotFoundComponent],
+  declarations: [AppComponent, NotFoundComponent],
   imports: [
     CoreModule,
     SharedModule,

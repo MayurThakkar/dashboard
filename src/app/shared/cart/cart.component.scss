@@ -21,21 +21,15 @@
 }
 
 .cart-card-content {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   padding-left: 0;
   padding-right: 0;
 }
 
 .cart-items,
 .total-items {
-  display: flex;
-  justify-content: space-between;
   height: 45px;
   border-top: solid 0.5px $icon-color;
-  padding: 10px 20px 5px 20px;
+  padding: 0 20px 0 20px;
 }
 
 .total-amount {
@@ -73,14 +67,16 @@
 .cart-items:hover {
   background-color: $default-background;
   .remove-item {
-    visibility: visible;
+    display: inline-block;
   }
+}
+
+.remove-item {
+  display: none;
+  width: 14px;
+  height: 14px;
 }
 
 .checkout-button {
   margin: 0 20px 0 20px;
-}
-
-.remove-item {
-  visibility: hidden;
 }

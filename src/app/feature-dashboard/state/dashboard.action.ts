@@ -1,6 +1,7 @@
-import { Update } from '@ngrx/entity';
 import { createAction, props } from '@ngrx/store';
+
 import { IShoppingCartItems } from '../model/cart-items.model';
+import { Update } from '@ngrx/entity';
 
 export enum CartActionTypes {
   REQUEST_ITEMS = '[CartItem] Request cart item data',
@@ -8,7 +9,7 @@ export enum CartActionTypes {
   UPDATE_AVAILABLE_CART_DATA = '[CartItem] Update cart item data',
   UPDATE_CART_DATA_SUCCESS = '[CartItem] update post success',
   DELETE_AVAILABLE_CART_DATA = '[CartItem] Delete cart item data',
-  DELETE_CART_DATA_SUCCESS = '[CartItem] Delete cart item data success'
+  DELETE_CART_DATA_SUCCESS = '[CartItem] Delete cart item data success',
 }
 
 export const updateCartData = createAction(
@@ -21,14 +22,8 @@ export const updateCartDataSuccess = createAction(
   props<{ cart: Update<IShoppingCartItems> }>()
 );
 
-export const deleteCartData = createAction(
-  CartActionTypes.DELETE_AVAILABLE_CART_DATA,
-  props<{ id: string }>()
-);
-export const deleteCartSucess = createAction(
-  CartActionTypes.DELETE_CART_DATA_SUCCESS,
-  props<{ id: string }>()
-);
+export const deleteCartData = createAction(CartActionTypes.DELETE_AVAILABLE_CART_DATA, props<{ id: string }>());
+export const deleteCartSucess = createAction(CartActionTypes.DELETE_CART_DATA_SUCCESS, props<{ id: string }>());
 
 export const loadItemsRequested = createAction(CartActionTypes.REQUEST_ITEMS);
 export const loadItemsSuccess = createAction(
