@@ -6,6 +6,7 @@ import { CartDataState } from 'src/app/feature-dashboard/state/dashboard.reducer
 import { IShoppingCartItems } from 'src/app/feature-dashboard/model/cart-items.model';
 import { Store } from '@ngrx/store';
 import { getCartData } from 'src/app/feature-dashboard/state/dashboard.selector';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-top-bar',
@@ -23,7 +24,7 @@ export class TopBarComponent implements OnInit, OnDestroy {
   constructor(private store: Store<CartDataState>) {}
 
   ngOnInit(): void {
-    this.cartItemSize$ = this.store.select(getCartData);
+    this.cartItemSize$ = this.store.select(getCartData).pipe(takeUntil(this.unSubscribe));
   }
 
   ngOnDestroy(): void {
