@@ -1,32 +1,30 @@
-<mat-card class="top-bar-card">
-  <div class="row justify-content-between">
-    <div class="col d-none d-none d-xl-block">
-      <span class="iconify" data-icon="feather-calendar" data-inline="false"></span>
-      <span class="iconify" data-icon="feather-message-square" data-inline="false"></span>
-      <span class="iconify" data-icon="feather-mail" data-inline="false"></span>
-      <span class="iconify" data-icon="feather-check-square" data-inline="false"></span>
-      <span class="iconify star-icon" data-icon="feather-star" data-inline="false"></span>
-    </div>
-    <div class="col d-xl-none">
-      <span class="iconify" data-icon="bytesize:menu" data-inline="false"></span>
-    </div>
-    <div class="col right-block">
-      <span class="iconify" data-icon="feather-search" data-inline="false"></span>
-      <span
-        (click)="openShoppingCart = !openShoppingCart"
-        class="cart-button"
-        [matBadge]="(cartItemSize$ | async)?.length"
-        [matBadgeHidden]="(cartItemSize$ | async)?.length == 0 || cartComp?.emptyBadgeLength"
-        matBadgeColor="primary"
-        matBadgeSize="medium"
-        ><span class="iconify" data-icon="feather-shopping-cart" data-inline="false"></span>
-      </span>
-      <span class="iconify cart-icon" data-icon="feather-bell" data-inline="false"></span>
-      <div class="user-name">
-        <span class="d-none d-sm-block">
-          <b>Username</b>
-        </span>
-      </div>
+
+<mat-card class="d-flex flex-row justify-content-between align-items-center top-bar-card">
+  <div class="d-flex flex-row d-none d-none d-xl-block">
+    <span class="iconify" data-icon="feather-calendar" data-inline="false"></span>
+    <span class="iconify" data-icon="feather-message-square" data-inline="false"></span>
+    <span class="iconify" data-icon="feather-mail" data-inline="false"></span>
+    <span class="iconify" data-icon="feather-check-square" data-inline="false"></span>
+    <span class="iconify star-icon" data-icon="feather-star" data-inline="false"></span>
+  </div>
+  <div class="d-flex flex-row d-xl-none">
+    <span class="iconify" data-icon="bytesize:menu" data-inline="false"></span>
+  </div>
+  <div class="d-flex flex-row align-items-center right-block">
+    <span class="iconify" data-icon="feather-search" data-inline="false"></span>
+    <span
+      (click)="openShoppingCart = !openShoppingCart"
+      class="cart-button"
+      [matBadge]="(cartItemSize$ | async)?.length"
+      [matBadgeHidden]="(cartItemSize$ | async)?.length == 0 || cartComp?.emptyBadgeLength"
+      matBadgeColor="primary"
+      matBadgeSize="medium"
+      ><span class="iconify" data-icon="feather-shopping-cart" data-inline="false"></span>
+    </span>
+    <span class="iconify cart-icon" data-icon="feather-bell" data-inline="false"></span>
+    <div class="d-none d-sm-block user-name">
+      <b>Username</b>
+      <p class="profile">admin</p>
     </div>
   </div>
   <app-cart *ngIf="openShoppingCart" class="shopping-cart"></app-cart>
