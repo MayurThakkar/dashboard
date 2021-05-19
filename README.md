@@ -21,6 +21,10 @@ Run `ng build` to build the project.
 
 ## Screenshots
 
+Desktop size dasboard:
+
+![desktop page](screenshots/desktop-main.png)
+
 Desktop size dasboard: Shopping cart is filled with list item:
 
 ![desktop page](screenshots/desktop.png)
