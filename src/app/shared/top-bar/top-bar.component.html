@@ -26,5 +26,8 @@
       <p class="profile">admin</p>
     </div>
   </div>
-  <app-cart *ngIf="openShoppingCart" class="shopping-cart"></app-cart>
 </mat-card>
+
+<div *ngIf="openShoppingCart" class="shopping-cart">
+  <app-cart></app-cart>
+</div>
