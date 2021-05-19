@@ -1,15 +1,9 @@
 @import '../../../styles/style-variable.scss';
 
-.icon-card {
-  display: flex;
-  justify-content: space-between;
-}
-
 .image {
-  height: 22px;
   border-radius: 50%;
   padding: 12px;
-  font-size: 14px;
+  margin-right: 5px;
 }
 
 .image-1 {
@@ -30,4 +24,13 @@
 .image-4 {
   color: $circle-4-color;
   background-color: $circle-4-background;
+}
+
+.icon-block {
+  margin: 5px;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 10px;
 }

@@ -1,12 +1,30 @@
-<div>
-  <div class="icon-card">
-    <span class="image image-1">img</span>
-    <span>999K</span>
-    <span class="image image-2">img</span>
-    <span>999K</span>
-    <span class="image image-3">img</span>
-    <span>999K</span>
-    <span class="image image-4">img</span>
-    <span>999K</span>
+<div class="d-flex flex-md-row flex-lg-row flex-column justify-content-around">
+  <div class="d-flex flex-row icon-block">
+    <div class="image image-1">img</div>
+    <div class="text-center">
+      <b>999K</b>
+      <p class="subtitle">Lorem</p>
+    </div>
+  </div>
+  <div class="d-flex flex-row icon-block">
+    <div class="image image-2">img</div>
+    <div class="text-center align-items-center">
+      <b>999K</b>
+      <p class="subtitle">Lorem</p>
+    </div>
+  </div>
+  <div class="d-flex flex-row icon-block">
+    <div class="image image-3">img</div>
+    <div class="text-center align-items-center">
+      <b>999K</b>
+      <p class="subtitle">Lorem</p>
+    </div>
+  </div>
+  <div class="d-flex flex-row icon-block">
+    <div class="image image-4">img</div>
+    <div class="text-center align-items-center">
+      <b>{{ 999 | currency: 'USD':'symbol':'1.0-0' }}</b>
+      <p class="subtitle">Lorem</p>
+    </div>
   </div>
 </div>
