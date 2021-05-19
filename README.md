@@ -33,13 +33,17 @@ Desktop size dasboard: After checkout the list is empty and shows an alert messa
 
 ![checkout](screenshots/checkout.png)
 
+![checkout](screenshots/checkout-tablet.png)
+
+![checkout](screenshots/checkout-mobile.png)
+
 Mobile size dashboard:
 
 ![mobile-size page](screenshots/mobile-size.png)
 
 Tablet size dashboard:
 
-![Tablet page](screenshots/Tablet.png)
+![Tablet page](screenshots/tablet.png)
 
 Page Not found:
 
