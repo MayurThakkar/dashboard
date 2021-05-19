@@ -6,20 +6,20 @@
   <mat-card-content *ngIf="shoppingCart$ | async as cartList" class="d-flex flex-column cart-card-content">
     <div *ngFor="let item of shoppingCart">
       <div class="d-flex justify-content-between align-items-center cart-items">
-          <span>{{ item.name }}</span>
-          <div class="quantity">
-            <input type="button" value="-" class="quantity-button" (click)="updateCartItem(item, false)" />
-            <input class="quantity-count" step="1" [ngModel]="item.count" (ngModelChange)="changeItem($event, item)" />
-            <input type="button" value="+" class="quantity-button" (click)="updateCartItem(item, true)" />
-          </div>
-          <div>
-            <span>{{ item.total | currency }}</span>
-            <a (click)="removeCartItem(item)"
-              ><span class="iconify remove-item" data-icon="codicon:close" data-inline="false"></span
-            ></a>
-          </div>
+        <span>{{ item.name }}</span>
+        <div class="quantity">
+          <input type="button" value="-" class="quantity-button" (click)="updateCartItem(item, false)" />
+          <input class="quantity-count" step="1" [ngModel]="item.count" (ngModelChange)="changeItem($event, item)" />
+          <input type="button" value="+" class="quantity-button" (click)="updateCartItem(item, true)" />
+        </div>
+        <div>
+          <span>{{ item.total | currency }}</span>
+          <a (click)="removeCartItem(item)"
+            ><span class="iconify remove-item" data-icon="codicon:close" data-inline="false"></span
+          ></a>
         </div>
       </div>
+    </div>
     <div class="d-flex justify-content-between align-items-center total-items" *ngIf="shoppingCart?.length != 0">
       <span>Total:</span><span class="total-amount">{{ totalAmount | currency }}</span>
     </div>

@@ -6,7 +6,9 @@
       </app-card>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="gridLayout?.iconCard.cols" [rowspan]="gridLayout?.iconCard.rows">
-      <app-card header="Title" notification="update N month(s) ago"></app-card>
+      <app-card header="Title" notification="update N month(s) ago">
+        <app-icon-card></app-icon-card>
+      </app-card>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="gridLayout?.miniCard.cols" [rowspan]="gridLayout?.miniCard.rows">
       <app-card header="Title"></app-card>
