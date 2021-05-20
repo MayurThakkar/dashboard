@@ -3,7 +3,7 @@ import * as cartActions from './dashboard.action';
 import { EntityState, createEntityAdapter } from '@ngrx/entity';
 import { createReducer, on } from '@ngrx/store';
 
-import { IShoppingCartItems } from '../model/cart-items.model';
+import { IShoppingCartItems } from '../../feature-dashboard/model/cart-items.model';
 
 export interface CartDataState extends EntityState<IShoppingCartItems> {
   isLoaded: boolean;
@@ -17,16 +17,22 @@ const initialState: CartDataState = cartsAdapter.getInitialState({
 
 const cartsReducer = createReducer(
   initialState,
+  on(cartActions.loadItemsSuccess, (state, action) => {
+    return cartsAdapter.setAll(action.carts, {
+      ...state,
+      isLoaded: true,
+    });
+  }),
   on(cartActions.updateCartDataSuccess, (state, action) => {
     return cartsAdapter.updateOne(action.cart, state);
   }),
   on(cartActions.deleteCartSucess, (state, { id }) => {
     return cartsAdapter.removeOne(id, state);
   }),
-  on(cartActions.loadItemsSuccess, (state, action) => {
-    return cartsAdapter.setAll(action.carts, {
+  on(cartActions.removeAllCartSucess, (state) => {
+    return cartsAdapter.removeAll({
       ...state,
-      isLoaded: true,
+      isLoaded: false,
     });
   })
 );

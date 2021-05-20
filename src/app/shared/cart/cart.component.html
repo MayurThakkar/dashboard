@@ -1,26 +1,26 @@
-<mat-card class="d-flex flex-column cart-card">
+<mat-card *ngIf="shoppingCart$ | async as cartList" class="d-flex flex-column cart-card">
   <mat-card-header class="d-flex justify-content-between">
     <mat-card-title>My Cart</mat-card-title>
-    <span *ngIf="shoppingCart" class="item-length">{{ shoppingCart?.length }} Items</span>
+    <span class="item-length">{{ cartList?.length }} Items</span>
   </mat-card-header>
-  <mat-card-content *ngIf="shoppingCart$ | async as cartList" class="d-flex flex-column cart-card-content">
-    <div *ngFor="let item of shoppingCart">
+  <mat-card-content class="d-flex flex-column cart-card-content">
+    <div *ngFor="let item of cartList">
       <div class="d-flex justify-content-between align-items-center cart-items">
         <span>{{ item.name }}</span>
-        <div class="quantity">
+        <div class="d-flex flex-row align-items-center quantity">
           <input type="button" value="-" class="quantity-button" (click)="updateCartItem(item, false)" />
           <input class="quantity-count" step="1" [ngModel]="item.count" (ngModelChange)="changeItem($event, item)" />
           <input type="button" value="+" class="quantity-button" (click)="updateCartItem(item, true)" />
         </div>
-        <div>
+        <div class="d-flex flex-column">
+          <a (click)="removeCartItem(item)" class="align-right">
+            <span class="iconify remove-item" data-icon="codicon:close" data-inline="false"></span>
+          </a>
           <span>{{ item.total | currency }}</span>
-          <a (click)="removeCartItem(item)"
-            ><span class="iconify remove-item" data-icon="codicon:close" data-inline="false"></span
-          ></a>
         </div>
       </div>
     </div>
-    <div class="d-flex justify-content-between align-items-center total-items" *ngIf="shoppingCart?.length != 0">
+    <div *ngIf="cartList?.length != 0" class="d-flex justify-content-between align-items-center total-items">
       <span>Total:</span><span class="total-amount">{{ totalAmount | currency }}</span>
     </div>
     <button
@@ -28,7 +28,7 @@
       color="primary"
       class="checkout-button"
       (click)="checkoutTheCart()"
-      [disabled]="shoppingCart?.length == 0"
+      [disabled]="cartList?.length == 0"
     >
       Checkout
     </button>

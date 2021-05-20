@@ -5,7 +5,7 @@ import { exhaustMap, filter, map, switchMap, withLatestFrom } from 'rxjs/operato
 
 import { CartDataState } from './dashboard.reducer';
 import { DashboardService } from '../service/dashboard-service.service';
-import { IShoppingCartItems } from '../model/cart-items.model';
+import { IShoppingCartItems } from '../../feature-dashboard/model/cart-items.model';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Update } from '@ngrx/entity';
@@ -54,6 +54,13 @@ export class DashBoardEffects {
           .deleteItem(action.id)
           .pipe(map((result) => cartActions.deleteCartSucess({ id: action.id })));
       })
+    )
+  );
+
+  removeAllCartItems$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(cartActions.CartActionTypes.REMOVE_AVAILABLE_CART_DATA),
+      switchMap(() => this.dashBoardService.removeAllItems().pipe(map(() => cartActions.removeAllCartSucess())))
     )
   );
 

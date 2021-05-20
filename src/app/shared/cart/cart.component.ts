@@ -1,11 +1,11 @@
-import * as CartActions from 'src/app/feature-dashboard/state/dashboard.action';
-import * as CartSelector from 'src/app/feature-dashboard/state/dashboard.selector';
+import * as CartActions from 'src/app/shared/state/dashboard.action';
+import * as CartSelector from 'src/app/shared/state/dashboard.selector';
 
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 
-import { CartDataState } from 'src/app/feature-dashboard/state/dashboard.reducer';
-import { DashboardService } from '../../feature-dashboard/service/dashboard-service.service';
+import { CartDataState } from 'src/app/shared/state/dashboard.reducer';
+import { DashboardService } from '../service/dashboard-service.service';
 import { IShoppingCartItems } from '../../feature-dashboard/model/cart-items.model';
 import { Store } from '@ngrx/store';
 import { takeUntil } from 'rxjs/operators';
@@ -18,20 +18,16 @@ import { takeUntil } from 'rxjs/operators';
 export class CartComponent implements OnInit, OnDestroy {
   private unSubscribe = new Subject<void>();
   shoppingCart$: Observable<IShoppingCartItems[]>;
-  shoppingCart: IShoppingCartItems[];
   totalAmount = 0;
 
   showClose = false;
   emptyBadgeLength = false;
 
-  constructor(private dashboardService: DashboardService, private store: Store<CartDataState>) {
+  constructor(private store: Store<CartDataState>, private dashboardservice: DashboardService) {
     this.shoppingCart$ = this.store.select(CartSelector.getCartData).pipe(takeUntil(this.unSubscribe));
   }
 
-  ngOnInit(): void {
-    this.store.dispatch(CartActions.loadItemsRequested());
-    this.getCartItems();
-  }
+  ngOnInit(): void {}
 
   ngOnDestroy(): void {
     this.unSubscribe.unsubscribe();
@@ -43,7 +39,6 @@ export class CartComponent implements OnInit, OnDestroy {
       .select(CartSelector.getCartData)
       .pipe(takeUntil(this.unSubscribe))
       .subscribe((cartList: IShoppingCartItems[]) => {
-        this.shoppingCart = cartList;
         if (cartList.length === 0) {
           this.totalAmount = 0;
           return;
@@ -73,12 +68,10 @@ export class CartComponent implements OnInit, OnDestroy {
 
   removeCartItem(item: IShoppingCartItems) {
     this.store.dispatch(CartActions.deleteCartData({ id: item.id }));
-    this.getCartItems();
   }
 
   checkoutTheCart() {
-    this.shoppingCart = [];
-    this.emptyBadgeLength = true;
+    this.store.dispatch(CartActions.removeAllCartSucess());
     alert('The payment is finished successfully');
   }
 }
