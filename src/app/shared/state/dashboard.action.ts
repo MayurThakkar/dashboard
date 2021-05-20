@@ -24,8 +24,14 @@ export const updateCartDataSuccess = createAction(
   props<{ cart: Update<IShoppingCartItems> }>()
 );
 
-export const deleteCartData = createAction(CartActionTypes.DELETE_AVAILABLE_CART_DATA, props<{ id: string }>());
-export const deleteCartSucess = createAction(CartActionTypes.DELETE_CART_DATA_SUCCESS, props<{ id: string }>());
+export const deleteCartData = createAction(
+  CartActionTypes.DELETE_AVAILABLE_CART_DATA,
+  props<{ cart: IShoppingCartItems }>()
+);
+export const deleteCartSucess = createAction(
+  CartActionTypes.DELETE_CART_DATA_SUCCESS,
+  props<{ cart: IShoppingCartItems }>()
+);
 
 export const removeAllCartData = createAction(CartActionTypes.REMOVE_AVAILABLE_CART_DATA);
 export const removeAllCartSucess = createAction(CartActionTypes.REMOVE_CART_DATA_SUCCESS);

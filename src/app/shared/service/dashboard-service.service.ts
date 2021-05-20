@@ -12,15 +12,15 @@ export class DashboardService {
   constructor(private httpClient: HttpClient) {}
 
   getCartItems(): Observable<IShoppingCartItems[]> {
-    return this.httpClient.get(URL + '/') as Observable<IShoppingCartItems[]>;
+    return this.httpClient.get(`${URL}/`) as Observable<IShoppingCartItems[]>;
   }
 
   updateItem(item: IShoppingCartItems): Observable<IShoppingCartItems> {
-    return this.httpClient.put(URL + '/' + item.id, item) as Observable<IShoppingCartItems>;
+    return this.httpClient.put(`${URL}/${item.id}`, item) as Observable<IShoppingCartItems>;
   }
 
-  deleteItem(itemId: string): Observable<IShoppingCartItems> {
-    return this.httpClient.delete(URL + '/' + itemId) as Observable<IShoppingCartItems>;
+  deleteItem(item: IShoppingCartItems): Observable<IShoppingCartItems> {
+    return this.httpClient.delete(`${URL}/${item.id}`) as Observable<IShoppingCartItems>;
   }
 
   removeAllItems(): Observable<IShoppingCartItems[]> {

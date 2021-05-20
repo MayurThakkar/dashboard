@@ -26,8 +26,8 @@ const cartsReducer = createReducer(
   on(cartActions.updateCartDataSuccess, (state, action) => {
     return cartsAdapter.updateOne(action.cart, state);
   }),
-  on(cartActions.deleteCartSucess, (state, { id }) => {
-    return cartsAdapter.removeOne(id, state);
+  on(cartActions.deleteCartSucess, (state, action) => {
+    return cartsAdapter.removeOne(action.cart.id, state);
   }),
   on(cartActions.removeAllCartSucess, (state) => {
     return cartsAdapter.removeAll({

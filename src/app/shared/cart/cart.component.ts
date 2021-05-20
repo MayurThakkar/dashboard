@@ -2,12 +2,11 @@ import * as CartActions from 'src/app/shared/state/dashboard.action';
 import * as CartSelector from 'src/app/shared/state/dashboard.selector';
 
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
 
 import { CartDataState } from 'src/app/shared/state/dashboard.reducer';
-import { DashboardService } from '../service/dashboard-service.service';
 import { IShoppingCartItems } from '../../feature-dashboard/model/cart-items.model';
 import { Store } from '@ngrx/store';
+import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 @Component({
@@ -17,35 +16,31 @@ import { takeUntil } from 'rxjs/operators';
 })
 export class CartComponent implements OnInit, OnDestroy {
   private unSubscribe = new Subject<void>();
-  shoppingCart$: Observable<IShoppingCartItems[]>;
-  totalAmount = 0;
+  shoppingCart: IShoppingCartItems[];
+  totalAmount: number;
 
   showClose = false;
   emptyBadgeLength = false;
 
-  constructor(private store: Store<CartDataState>, private dashboardservice: DashboardService) {
-    this.shoppingCart$ = this.store.select(CartSelector.getCartData).pipe(takeUntil(this.unSubscribe));
-  }
+  constructor(private store: Store<CartDataState>) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getCartItems();
+  }
 
   ngOnDestroy(): void {
     this.unSubscribe.unsubscribe();
   }
 
   getCartItems() {
-    let amount = 0;
     this.store
       .select(CartSelector.getCartData)
       .pipe(takeUntil(this.unSubscribe))
       .subscribe((cartList: IShoppingCartItems[]) => {
-        if (cartList.length === 0) {
-          this.totalAmount = 0;
-          return;
-        }
+        this.totalAmount = 0;
+        this.shoppingCart = cartList;
         cartList.forEach((element) => {
-          amount += element.total;
-          this.totalAmount = amount;
+          this.totalAmount += element.total;
         });
       });
   }
@@ -63,11 +58,10 @@ export class CartComponent implements OnInit, OnDestroy {
   editCartItem(item: IShoppingCartItems) {
     item.total = item.price * item.count;
     this.store.dispatch(CartActions.updateCartData({ cart: item }));
-    this.getCartItems();
   }
 
   removeCartItem(item: IShoppingCartItems) {
-    this.store.dispatch(CartActions.deleteCartData({ id: item.id }));
+    this.store.dispatch(CartActions.deleteCartData({ cart: item }));
   }
 
   checkoutTheCart() {

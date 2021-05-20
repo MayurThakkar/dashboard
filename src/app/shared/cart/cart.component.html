@@ -1,10 +1,10 @@
-<mat-card *ngIf="shoppingCart$ | async as cartList" class="d-flex flex-column cart-card">
+<mat-card *ngIf="shoppingCart" class="d-flex flex-column cart-card">
   <mat-card-header class="d-flex justify-content-between">
     <mat-card-title>My Cart</mat-card-title>
-    <span class="item-length">{{ cartList?.length }} Items</span>
+    <span class="item-length">{{ shoppingCart?.length }} Items</span>
   </mat-card-header>
   <mat-card-content class="d-flex flex-column cart-card-content">
-    <div *ngFor="let item of cartList">
+    <div *ngFor="let item of shoppingCart">
       <div class="d-flex justify-content-between align-items-center cart-items">
         <span>{{ item.name }}</span>
         <div class="d-flex flex-row align-items-center quantity">
@@ -20,7 +20,7 @@
         </div>
       </div>
     </div>
-    <div *ngIf="cartList?.length != 0" class="d-flex justify-content-between align-items-center total-items">
+    <div *ngIf="shoppingCart?.length != 0" class="d-flex justify-content-between align-items-center total-items">
       <span>Total:</span><span class="total-amount">{{ totalAmount | currency }}</span>
     </div>
     <button
@@ -28,7 +28,7 @@
       color="primary"
       class="checkout-button"
       (click)="checkoutTheCart()"
-      [disabled]="cartList?.length == 0"
+      [disabled]="shoppingCart?.length == 0"
     >
       Checkout
     </button>
