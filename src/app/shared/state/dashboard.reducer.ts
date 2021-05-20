@@ -7,12 +7,14 @@ import { IShoppingCartItems } from '../../feature-dashboard/model/cart-items.mod
 
 export interface CartDataState extends EntityState<IShoppingCartItems> {
   isLoaded: boolean;
+  error?: string | null;
 }
 
 export const cartsAdapter = createEntityAdapter<IShoppingCartItems>();
 
 const initialState: CartDataState = cartsAdapter.getInitialState({
   isLoaded: false,
+  error: null,
 });
 
 const cartsReducer = createReducer(
@@ -23,8 +25,22 @@ const cartsReducer = createReducer(
       isLoaded: true,
     });
   }),
+  on(cartActions.loadItemsFail, (state, { error }) => {
+    return cartsAdapter.removeAll({
+      ...state,
+      isLoaded: false,
+      error,
+    });
+  }),
   on(cartActions.updateCartDataSuccess, (state, action) => {
     return cartsAdapter.updateOne(action.cart, state);
+  }),
+  on(cartActions.updateCartDataFail, (state, { error }) => {
+    return {
+      ...state,
+      isLoading: false,
+      error,
+    };
   }),
   on(cartActions.deleteCartSucess, (state, action) => {
     return cartsAdapter.removeOne(action.cart.id, state);
@@ -34,6 +50,13 @@ const cartsReducer = createReducer(
       ...state,
       isLoaded: false,
     });
+  }),
+  on(cartActions.removeAllCartFail, (state, { error }) => {
+    return {
+      ...state,
+      isLoaded: false,
+      error,
+    };
   })
 );
 

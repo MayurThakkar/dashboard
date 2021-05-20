@@ -14,8 +14,6 @@ import { map } from 'rxjs/operators';
 export class CardGridComponent implements OnInit {
   constructor(private breakpointObserver: BreakpointObserver) {}
 
-  ngOnInit(): void {}
-
   gridLayout$: Observable<any> = this.breakpointObserver
     .observe([Breakpoints.XSmall, Breakpoints.Small, Breakpoints.Medium, Breakpoints.Large, Breakpoints.XLarge])
     .pipe(
@@ -37,4 +35,6 @@ export class CardGridComponent implements OnInit {
         }
       })
     );
+
+  ngOnInit(): void {}
 }
