@@ -51,7 +51,13 @@ export class CartComponent implements OnInit, OnDestroy {
   }
 
   updateCartItem(item: IShoppingCartItems, isAdd: boolean) {
-    isAdd ? (item.count += 1) : (item.count -= 1);
+    if (isAdd) {
+      item.count += 1;
+    } else {
+      if (item.count > 0) {
+        item.count -= 1;
+      }
+    }
     this.editCartItem(item);
   }
 
