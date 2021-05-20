@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { CartDataState } from './feature-dashboard/state/dashboard.reducer';
+import { CartDataState } from './shared/state/dashboard.reducer';
 import { Store } from '@ngrx/store';
-import { loadItemsRequested } from './feature-dashboard/state/dashboard.action';
+import { loadItemsRequested } from './shared/state/dashboard.action';
 
 @Component({
   selector: 'app-root',

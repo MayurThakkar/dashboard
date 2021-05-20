@@ -2,7 +2,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './shared/core.module';
 import { DashboardModule } from './feature-dashboard/dashboard.module';
-import { DataService } from './feature-dashboard/service/data.service';
+import { DataService } from './shared/service/data.service';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';

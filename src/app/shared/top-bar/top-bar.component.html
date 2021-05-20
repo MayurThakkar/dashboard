@@ -15,7 +15,7 @@
       (click)="openShoppingCart = !openShoppingCart"
       class="cart-button"
       [matBadge]="(cartItemSize$ | async)?.length"
-      [matBadgeHidden]="(cartItemSize$ | async)?.length == 0 || cartComp?.emptyBadgeLength"
+      [matBadgeHidden]="(cartItemSize$ | async)?.length == 0"
       matBadgeColor="primary"
       matBadgeSize="medium"
       ><span class="iconify" data-icon="feather-shopping-cart" data-inline="false"></span>
