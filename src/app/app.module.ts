@@ -10,6 +10,7 @@ import { NgModule } from '@angular/core';
 import { NotFoundComponent } from './feature-not-found/not-found/not-found.component';
 import { SharedModule } from './shared/shared.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { IonicModule } from '@ionic/angular';
 
 @NgModule({
   declarations: [AppComponent, NotFoundComponent],
@@ -24,6 +25,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     StoreDevtoolsModule.instrument({
       maxAge: 25,
     }),
+    IonicModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],
