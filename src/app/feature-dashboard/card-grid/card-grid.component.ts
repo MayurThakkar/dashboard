@@ -33,7 +33,7 @@ export class CardGridComponent implements OnInit {
         if (breakpoints[Breakpoints.XLarge]) {
           return gridSizeJson.xLarge;
         }
-      })
+      }),
     );
 
   ngOnInit(): void {}

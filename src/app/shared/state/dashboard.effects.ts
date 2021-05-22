@@ -70,7 +70,7 @@ export class DashBoardEffects {
       switchMap(() =>
         this.dashBoardService.removeAllItems().pipe(
           map(() => cartActions.removeAllCartSucess()),
-          catchError(async (error) => cartActions.deleteCartFail({ error }))
+          catchError(async (error) => cartActions.removeAllCartFail({ error }))
         )
       )
     )
