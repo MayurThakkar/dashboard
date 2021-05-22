@@ -21,31 +21,31 @@ export enum CartActionTypes {
 export const loadItemsRequested = createAction(CartActionTypes.REQUEST_ITEMS);
 export const loadItemsSuccess = createAction(
   CartActionTypes.GET_AVAILABLE_CART_DATA_SUCCESS,
-  props<{ carts: IShoppingCartItems[] }>()
+  props<{ carts: IShoppingCartItems[] }>(),
 );
 
 export const loadItemsFail = createAction(CartActionTypes.GET_AVAILABLE_CART_DATA_FAIL, props<{ error: any }>());
 
 export const updateCartData = createAction(
   CartActionTypes.UPDATE_AVAILABLE_CART_DATA,
-  props<{ cart: IShoppingCartItems }>()
+  props<{ cart: IShoppingCartItems }>(),
 );
 
 export const updateCartDataSuccess = createAction(
   CartActionTypes.UPDATE_CART_DATA_SUCCESS,
-  props<{ cart: Update<IShoppingCartItems> }>()
+  props<{ cart: Update<IShoppingCartItems> }>(),
 );
 
 export const updateCartDataFail = createAction(CartActionTypes.UPDATE_CART_DATA_FAIL, props<{ error: any }>());
 
 export const deleteCartData = createAction(
   CartActionTypes.DELETE_AVAILABLE_CART_DATA,
-  props<{ cart: IShoppingCartItems }>()
+  props<{ cart: IShoppingCartItems }>(),
 );
 
 export const deleteCartSucess = createAction(
   CartActionTypes.DELETE_CART_DATA_SUCCESS,
-  props<{ cart: IShoppingCartItems }>()
+  props<{ cart: IShoppingCartItems }>(),
 );
 
 export const deleteCartFail = createAction(CartActionTypes.DELETE_CART_DATA_FAIL, props<{ error: any }>());

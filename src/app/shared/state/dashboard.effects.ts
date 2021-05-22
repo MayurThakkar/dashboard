@@ -16,7 +16,7 @@ export class DashBoardEffects {
   constructor(
     private actions$: Actions,
     private store: Store<CartDataState>,
-    private dashBoardService: DashboardService
+    private dashBoardService: DashboardService,
   ) {}
 
   loadCartRequest$ = createEffect(() =>
@@ -26,10 +26,10 @@ export class DashBoardEffects {
       switchMap(() =>
         this.dashBoardService.getCartItems().pipe(
           map((carts) => cartActions.loadItemsSuccess({ carts })),
-          catchError(async (error) => cartActions.loadItemsFail({ error }))
-        )
-      )
-    )
+          catchError(async (error) => cartActions.loadItemsFail({ error })),
+        ),
+      ),
+    ),
   );
 
   updateCartItem$ = createEffect(() =>
@@ -46,10 +46,10 @@ export class DashBoardEffects {
             };
             return cartActions.updateCartDataSuccess({ cart: updateCart });
           }),
-          catchError(async (error) => cartActions.updateCartDataFail({ error }))
-        )
-      )
-    )
+          catchError(async (error) => cartActions.updateCartDataFail({ error })),
+        ),
+      ),
+    ),
   );
 
   deleteCartItem$ = createEffect(() =>
@@ -58,10 +58,10 @@ export class DashBoardEffects {
       switchMap((action: any) => {
         return this.dashBoardService.deleteItem(action.cart).pipe(
           map(() => cartActions.deleteCartSucess({ cart: action.cart })),
-          catchError(async (error) => cartActions.deleteCartFail({ error }))
+          catchError(async (error) => cartActions.deleteCartFail({ error })),
         );
-      })
-    )
+      }),
+    ),
   );
 
   removeAllCartItems$ = createEffect(() =>
@@ -70,9 +70,9 @@ export class DashBoardEffects {
       switchMap(() =>
         this.dashBoardService.removeAllItems().pipe(
           map(() => cartActions.removeAllCartSucess()),
-          catchError(async (error) => cartActions.removeAllCartFail({ error }))
-        )
-      )
-    )
+          catchError(async (error) => cartActions.removeAllCartFail({ error })),
+        ),
+      ),
+    ),
   );
 }

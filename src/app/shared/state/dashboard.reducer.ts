@@ -57,7 +57,7 @@ const cartsReducer = createReducer(
       isLoaded: false,
       error,
     };
-  })
+  }),
 );
 
 export function reducer(state, action) {
