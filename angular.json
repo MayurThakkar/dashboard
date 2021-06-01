@@ -61,11 +61,13 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "dashboard:build"
+            "browserTarget": "dashboard:build",
+            "port": 9090
           },
           "configurations": {
             "production": {
-              "browserTarget": "dashboard:build:production"
+              "browserTarget": "dashboard:build:production",
+              "port": 9090
             }
           }
         },

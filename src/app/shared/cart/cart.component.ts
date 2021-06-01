@@ -52,7 +52,9 @@ export class CartComponent implements OnInit, OnDestroy {
 
   updateCartItem(item: IShoppingCartItems, isAdd: boolean) {
     if (isAdd) {
-      item.count += 1;
+      if (item.count < 10) {
+        item.count += 1;
+      }
     } else {
       if (item.count > 0) {
         item.count -= 1;
